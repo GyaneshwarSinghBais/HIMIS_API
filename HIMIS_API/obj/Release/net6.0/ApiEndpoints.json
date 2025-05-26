@@ -1,0 +1,2817 @@
+[
+  {
+    "ContainingType": "HIMIS_API.Controllers.ASDetails",
+    "Method": "ASCompleted",
+    "RelativePath": "api/ASDetails/ASCompleted",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.AS.ASEnteredSummyDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ASDetails",
+    "Method": "ASEnteredDetails",
+    "RelativePath": "api/ASDetails/ASEnteredDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ASID",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.AS.ASEnteredDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ASDetails",
+    "Method": "ASPendingSummary",
+    "RelativePath": "api/ASDetails/ASPending",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.AS.ASPendingDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ASDetails",
+    "Method": "DivisionWiseASPending",
+    "RelativePath": "api/ASDetails/DivisionWiseASPending",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.AS.ASDivsionPendingDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ASDetails",
+    "Method": "getASFile",
+    "RelativePath": "api/ASDetails/getASFile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ASID",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "workid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.AS.ASFileNameDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.DetailProgress",
+    "Method": "LandIssue_RetToDeptDetatails",
+    "RelativePath": "api/DetailProgress/LandIssue_RetToDeptDetatails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "did",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DetailsProgress.WORunningHandDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.DetailProgress",
+    "Method": "TenderInProcess",
+    "RelativePath": "api/DetailProgress/TenderInProcess",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "did",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DetailsProgress.TenderinProcess, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.DetailProgress",
+    "Method": "TobeTenderAll",
+    "RelativePath": "api/DetailProgress/TobeTenderAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "did",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DetailsProgress.TobeTenderDash, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.DetailProgress",
+    "Method": "TotalWorksAbstract",
+    "RelativePath": "api/DetailProgress/TotalWorksAbstract",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "contractorid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DetailsProgress.WORunningHandDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.DetailProgress",
+    "Method": "WORunningHandDetails",
+    "RelativePath": "api/DetailProgress/WORunningHandDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "did",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "contractorid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DetailsProgress.WORunningHandDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.FieldLoginController",
+    "Method": "LoginField",
+    "RelativePath": "api/FieldLogin/LoginField",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "HIMIS_API.Models.FieldLogin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.FinancialController",
+    "Method": "getHandoverDetails",
+    "RelativePath": "api/Financial/getHandoverDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dashid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SWId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.WorkorderpendingdetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.FinancialController",
+    "Method": "HandoverAbstract",
+    "RelativePath": "api/Financial/HandoverAbstract",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dashid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SWId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromdt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Handover.HandOverAbstractDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.Handover",
+    "Method": "getHandoverDetails",
+    "RelativePath": "api/Handover/getHandoverDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dashid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SWId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromdt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.WorkorderpendingdetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.Handover",
+    "Method": "HandoverAbstract",
+    "RelativePath": "api/Handover/HandoverAbstract",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dashid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SWId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromdt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Handover.HandOverAbstractDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.LandIssue",
+    "Method": "getLandIssueDetails",
+    "RelativePath": "api/LandIssue/getLandIssueDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.WorkorderpendingdetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.LandIssue",
+    "Method": "LIPendingTotal",
+    "RelativePath": "api/LandIssue/LIPendingTotal",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MainSchemeID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.LandIssue.LandIssueSummaryDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "HIMIS_API.Models.LoginAdmin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.LoginController",
+    "Method": "GetAdminLoginDDL",
+    "RelativePath": "api/Login/getAdminLoginDDL",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.LoginAdmin, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.Payment",
+    "Method": "PaidDetails",
+    "RelativePath": "api/Payment/PaidDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromdt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Payment.PaidDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.Payment",
+    "Method": "PaidSummary",
+    "RelativePath": "api/Payment/PaidSummary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromdt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Payment.PaidSummaryDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.Payment",
+    "Method": "UnPaidDetails",
+    "RelativePath": "api/Payment/UnPaidDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "designame",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "OfficerID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Payment.UnPaidDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.Payment",
+    "Method": "UnPaidSummary",
+    "RelativePath": "api/Payment/UnPaidSummary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Payment.UnPaidSummary, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.Payment",
+    "Method": "WorkBillStatus",
+    "RelativePath": "api/Payment/WorkBillStatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Payment.WorkBillStatusDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "DashProgressCount",
+    "RelativePath": "api/Progress/DashProgressCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "GrantID",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.ProgressCountDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "DashProgressDistCount",
+    "RelativePath": "api/Progress/DashProgressDistCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dashID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.DistProgressCountDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetContractorWorks",
+    "RelativePath": "api/Progress/GetContractorWorks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "cid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "rpending",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.WorkContractorDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetDistrict",
+    "RelativePath": "api/Progress/GetDistrict",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isall",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.DistrictNameDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetDivision",
+    "RelativePath": "api/Progress/getDivision",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isall",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.DivisionNameDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetDivWiseProgress",
+    "RelativePath": "api/Progress/GetDivWiseProgress",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "cid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "rpending",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.DivPerformanceDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetHealthCentre",
+    "RelativePath": "api/Progress/GetHealthCentre",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.HealthCentreDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "getMainScheme",
+    "RelativePath": "api/Progress/getMainScheme",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isall",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.MainSchemeDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetMasContractor",
+    "RelativePath": "api/Progress/GetMasContractor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.MasContractorDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetPProgressLevel",
+    "RelativePath": "api/Progress/GetPProgressLevel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isall",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "ppid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.ProgressLevelDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetValuePara",
+    "RelativePath": "api/Progress/GetValuePara",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.MasValueParaDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetWorkDetail",
+    "RelativePath": "api/Progress/GetWorkDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "workName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "compareStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ppid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "wopending",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.WorkDetailDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetWorkOrderHead",
+    "RelativePath": "api/Progress/GetWorkOrderHead",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.MainSchemeDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "GetWorkOrderPending",
+    "RelativePath": "api/Progress/GetWorkOrderPending",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.WOPendingDivisionDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.ProgressController",
+    "Method": "getWorkOrderPendingDetails",
+    "RelativePath": "api/Progress/GetWorkOrderPendingDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isvaluePara",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.WOPendingDetailDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.RunningWork",
+    "Method": "RunningDelayWorksDetails",
+    "RelativePath": "api/RunningWork/RunningDelayWorksDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "delayTime",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "parameter",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "contractorid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.RunningWork.RunningWorkDetailsDelnTimeDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.RunningWork",
+    "Method": "RunningWorkSummary",
+    "RelativePath": "api/RunningWork/RunningWorkSummary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "contractid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.RunningWork.RunningWorkDTOSummary, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.RunningWork",
+    "Method": "RunningWorkSummaryDelay",
+    "RelativePath": "api/RunningWork/RunningWorkSummaryDelay",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "contractid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.RunningWork.RunningWorkDelayDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "getPriceEvaluationDetails",
+    "RelativePath": "api/TenderStatus/getPriceEvaluationDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.PriceOpnedDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "getTenderDetails",
+    "RelativePath": "api/TenderStatus/getTenderDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TimeStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.LiveTenderDetails, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "getTenderEvaluationDetails",
+    "RelativePath": "api/TenderStatus/getTenderEvaluationDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.EvaluatinoDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "LiveTender",
+    "RelativePath": "api/TenderStatus/LiveTender",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TimeStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.TenderAbstractDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "PriceEvaluation",
+    "RelativePath": "api/TenderStatus/PriceEvaluation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.EvaluationDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "TenderEvaluation",
+    "RelativePath": "api/TenderStatus/TenderEvaluation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.EvaluationDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "TobeTender",
+    "RelativePath": "api/TenderStatus/TobeTender",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.ToBeTenderSummaryDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "TobeTenderDetailsWOCancelled1934",
+    "RelativePath": "api/TenderStatus/TobeTenderAppliedZonalPermission25",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.TobeTenderZonalAppliedDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "TobeTenderDetailsAS1",
+    "RelativePath": "api/TenderStatus/TobeTenderDetailsAS1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.TobeTenderDetailsASDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "TobeTenderDetailsWOCancelled1934",
+    "RelativePath": "api/TenderStatus/TobeTenderDetailsWOCancelled1934",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ppid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.TobeTenderDetailsASDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "TobeTenderRejection23",
+    "RelativePath": "api/TenderStatus/TobeTenderRejection23",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.TobeTenderRejDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TSDetail",
+    "Method": "TSDetails",
+    "RelativePath": "api/TSDetail/TSDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.TS.TSDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TSDetail",
+    "Method": "TSPending",
+    "RelativePath": "api/TSDetail/TSPending",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.LandIssue.TSSummaryDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "DistrictEngAllotedWorks",
+    "RelativePath": "api/Work/DistrictEngAllotedWorks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "engtype",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.DistrictEngAllotedDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "DistrictNameDME",
+    "RelativePath": "api/Work/DistrictNameDME",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.DistrictNameDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "DMEProgressSummary",
+    "RelativePath": "api/Work/DMEProgressSummary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dashID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.DMEProgressCountDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "EngAllotedWorks",
+    "RelativePath": "api/Work/EngAllotedWorks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "engtype",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.EngAllotedDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "getDashLoginDDL",
+    "RelativePath": "api/Work/getDashLoginDDL",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.DashLoginDDLDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "getProgressCount",
+    "RelativePath": "api/Work/getProgressCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "did",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.ProgressCountDivisionDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "getProgressDetailsLatLong",
+    "RelativePath": "api/Work/getProgressDetailsLatLong",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "did",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "workid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TotMobile",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dayPara",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.ProgressCountDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "GetProjectTimeline",
+    "RelativePath": "api/Work/GetProjectTimeline",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.ProjectTimeDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "GetProjectTimelineNew",
+    "RelativePath": "api/Work/GetProjectTimelineNew",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.ProjectTimelinePyramidDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "getWorkDetailsWithEng",
+    "RelativePath": "api/Work/getWorkDetailsWithEng",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dahid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "engtype",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "empcode",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.WorkorderpendingdetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "GetWorkInfo",
+    "RelativePath": "api/Work/GetWorkInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.WorkInfoDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkController",
+    "Method": "WorkFill",
+    "RelativePath": "api/Work/WorkFill",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchtext",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "workid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DTOs.FillWorkDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkOrder",
+    "Method": "getWorkGenDetails",
+    "RelativePath": "api/WorkOrder/getWorkGenDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "work_id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromdt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.WOGeneratedDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkOrder",
+    "Method": "getWorkOrderPendingDetailsNew",
+    "RelativePath": "api/WorkOrder/getWorkOrderPendingDetailsNew",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "contractid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.WorkorderpendingdetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkOrder",
+    "Method": "WOPendingTotal",
+    "RelativePath": "api/WorkOrder/WOPendingTotal",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MainSchemeID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.WOPendingTotalDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkOrder",
+    "Method": "WorkOrderGenerated",
+    "RelativePath": "api/WorkOrder/WorkOrderGenerated",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RPType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromdt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MainSchemeID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WorkOrder.WOrderGeneratedDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkPhysicalProgressController",
+    "Method": "Create",
+    "RelativePath": "api/WorkPhysicalProgress",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "document",
+        "Type": "HIMIS_API.Models.Mongo_WorkPhysicalProgressModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkPhysicalProgressController",
+    "Method": "Delete",
+    "RelativePath": "api/WorkPhysicalProgress/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "MongoDB.Bson.ObjectId",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkPhysicalProgressController",
+    "Method": "GetAll",
+    "RelativePath": "api/WorkPhysicalProgress/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkPhysicalProgressController",
+    "Method": "GetById",
+    "RelativePath": "api/WorkPhysicalProgress/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkPhysicalProgressController",
+    "Method": "GetBySR",
+    "RelativePath": "api/WorkPhysicalProgress/GetBySR/{sr}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sr",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WorkPhysicalProgressController",
+    "Method": "GetImageBinary",
+    "RelativePath": "api/WorkPhysicalProgress/GetImageBinary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imgName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

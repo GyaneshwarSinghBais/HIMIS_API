@@ -1,0 +1,75 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "https://localhost:54155",
+      "sslPort": 44381
+    }
+  },
+  "profiles": {
+    "HIMIS_API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+     
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7247;http://localhost:5247",
+      "nativeDebugging": false,
+      "sqlDebugging": false
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "nativeDebugging": true,
+      "sqlDebugging": true
+    }
+  }
+}
+
+
+
+
+//{
+//  "profiles": {
+//    "CgmscHO_API": {
+//      "commandName": "Project",
+//      "launchBrowser": true,
+//      "launchUrl": "swagger",
+//      "environmentVariables": {
+//        "ASPNETCORE_ENVIRONMENT": "Development"
+//      },
+//      "dotnetRunMessages": true,
+//      "applicationUrl": "https://localhost:7247;http://localhost:5247",
+//      "nativeDebugging": false,
+//      "sqlDebugging": false
+//    },
+//    "IIS Express": {
+//      "commandName": "IISExpress",
+//      "launchBrowser": true,
+//      "launchUrl": "swagger",
+//      "environmentVariables": {
+//        "ASPNETCORE_ENVIRONMENT": "Development"
+//      },
+//      "nativeDebugging": true,
+//      "sqlDebugging": true
+//    }
+//  },
+//  "$schema": "https://json.schemastore.org/launchsettings.json",
+//  "iisSettings": {
+//    "windowsAuthentication": false,
+//    "anonymousAuthentication": true,
+//    "iisExpress": {
+//      "applicationUrl": "http://localhost:54155",
+//      "sslPort": 44381
+//    }
+//  }
+//}

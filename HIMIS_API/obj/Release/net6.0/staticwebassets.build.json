@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "deTO6l1OKLZI2+5siWTViTxK4WxOYm7r4EXDVwWV2As=",
+  "Source": "HIMIS_API",
+  "BasePath": "_content/HIMIS_API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
