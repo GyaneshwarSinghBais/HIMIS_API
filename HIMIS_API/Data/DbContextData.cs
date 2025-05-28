@@ -89,6 +89,8 @@ namespace HIMIS_API.Data
         public DbSet<ProjectTimelinePyramidDTO> ProjectTimelinePyramidDbSet { get; set; }
         public DbSet<RunningWorkDetailsDelnTimeDTO> RunningWorkDetailsDelnTimeDbSet { get; set; }
         public DbSet<GetTenderStatusDTO> GetTenderStatusDbSet { get; set; }
+        public DbSet<GetTenderStatusDetailDTO> GetTenderStatusDetailDbSet { get; set; }
+        
 
 
 
@@ -98,6 +100,7 @@ namespace HIMIS_API.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<GetTenderStatusDTO>().HasNoKey();
+            modelBuilder.Entity<GetTenderStatusDetailDTO>().HasNoKey();
         }
 
 

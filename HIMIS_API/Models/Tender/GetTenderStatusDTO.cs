@@ -9,5 +9,7 @@
         public int? nosWorks { get; set; }
 
         public decimal? TotalValuecr { get; set; }
+        public int? PPID { get; set; }
+        
     }
 }

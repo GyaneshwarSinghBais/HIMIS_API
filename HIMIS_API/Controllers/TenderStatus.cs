@@ -24,7 +24,7 @@ namespace HIMIS_API.Controllers
             _context = context;
         }
         [HttpGet("LiveTender")]
-        public async Task<ActionResult<IEnumerable<TenderAbstractDTO>>> LiveTender(string RPType,string divisionid,string districtid,string mainschemeid,string TimeStatus)
+        public async Task<ActionResult<IEnumerable<TenderAbstractDTO>>> LiveTender(string RPType, string divisionid, string districtid, string mainschemeid, string TimeStatus)
         {
             string? whereClause = "";
             if (divisionid != "0")
@@ -116,7 +116,7 @@ where p.NewProgress='Y'
 and wpp.PPID in (3)
 ) pl on pl.Work_id=tw.work_id
 
-where  1=1 and w.IsDeleted is null and t.IsZonal is null "+ whereClause + @"
+where  1=1 and w.IsDeleted is null and t.IsZonal is null " + whereClause + @"
 ) a group by ID, Name
 order by count(work_id) desc ";
             }
@@ -155,7 +155,7 @@ order by count(work_id) desc  ";
             }
             if (RPType == "District")
             {
-               //districtwise
+                //districtwise
                 query = $@" select  ID, Name,count(work_id) as nosWorks,count(distinct TenderID) as nosTender,
 isnull(cast(sum(Valueworksinlas)/100 as decimal(18,2)),0)  TotalValuecr
  from 
@@ -195,7 +195,7 @@ order by count(work_id) desc  ";
 
         [HttpGet("getTenderDetails")]
 
-        public async Task<ActionResult<IEnumerable<LiveTenderDetails>>> getTenderDetails(string divisionId, string mainSchemeId, string distid,string TimeStatus)
+        public async Task<ActionResult<IEnumerable<LiveTenderDetails>>> getTenderDetails(string divisionId, string mainSchemeId, string distid, string TimeStatus)
         {
             string? whereClause = "";
             if (divisionId != "0")
@@ -245,7 +245,7 @@ inner join MasTenderWorks tw on tw.work_id=w.work_id
 inner join division dv on dv.div_id=dis.div_id
 inner join agencydivisionmaster  agd on cast(agd.divisionname as  bigint)=cast(dv.div_id as bigint) and agd.DivisionID not in ('D1032')
 						where 1=1 and w.MainSchemeID not in (121) and w.IsDeleted is null " + whereClause + @" order by t.enddt  ";
-            
+
             return await _context.LiveTenderDetailsDbSet
             .FromSqlRaw(query)
             .ToListAsync();
@@ -403,9 +403,9 @@ where  1=1 and w.IsDeleted is null and t.IsZonal is null
 
             }
 
-           
-                whereClause += $" and t.rejid is null and t.topnedpricedt is null and (t.topneddt is not null or t.topnedbdt is not null) ";
-          
+
+            whereClause += $" and t.rejid is null and t.topnedpricedt is null and (t.topneddt is not null or t.topnedbdt is not null) ";
+
             string query = "";
             if (RPType == "Total")
             {
@@ -468,7 +468,7 @@ inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
 where p.NewProgress='Y' 
 and wpp.PPID in (24,21)
 ) pl on pl.Work_id=tw.work_id
-where  1=1 and w.IsDeleted is null and t.IsZonal is null "+ whereClause + @" ) a 
+where  1=1 and w.IsDeleted is null and t.IsZonal is null " + whereClause + @" ) a 
 group by ID, Name
 order by count(work_id) ";
             }
@@ -855,7 +855,7 @@ order by dv.divname_en, dis.DBStart_Name_En ";
 
 
         [HttpGet("TobeTenderDetailsWOCancelled1934")]
-        public async Task<ActionResult<IEnumerable<TobeTenderDetailsASDTO>>> TobeTenderDetailsWOCancelled1934(string divisionId, string mainSchemeId, string distid,string ppid)
+        public async Task<ActionResult<IEnumerable<TobeTenderDetailsASDTO>>> TobeTenderDetailsWOCancelled1934(string divisionId, string mainSchemeId, string distid, string ppid)
         {
             string? whereClause = "";
             if (divisionId != "0")
@@ -941,7 +941,7 @@ order by dv.divname_en,dis.DBStart_Name_En ";
                 whereClause += $" and  msc.MainSchemeID = {mainSchemeId}";
             }
 
-         
+
             string query = @" select msc.Name as Head,dv.divname_en as Division,dis.DBStart_Name_En as District,
 b.Block_Name_En,hc.DETAILS_ENG,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname
 ,w.letterno,convert(varchar,AADate,105) as ASDate,cast(tw.appliedvalue as decimal(18,2)) as value
@@ -971,7 +971,7 @@ left outer join SWDetails s on s.SWId=w.work_description_id
 left outer join BlocksMaster b on cast(b.Block_ID as int) = cast(d.BLOCK_ID as int)  and b.District_ID =dis.District_ID
 
 where   1=1 and w.IsDeleted is null and t.IsZonal ='Y' and tw.IsAppliedCancel is null  and w.MainSchemeID not in (121)
-"+ whereClause + @"
+" + whereClause + @"
 and tw.ZDistpatchNo is not null  and  tw.ishoalloted is null order by pl.ProgressDT desc ";
             return await _context.TobeTenderZonalAppliedDbSet
               .FromSqlRaw(query)
@@ -1046,11 +1046,25 @@ order by Tw.RejEntryDT desc ";
         //gyan test for github
         //https://localhost:7247/api/EMS/GetTenderStatus
         [HttpGet("GetTenderStatus")]
-        public async Task<ActionResult<IEnumerable<GetTenderStatusDTO>>> GetTenderStatus()
+        public async Task<ActionResult<IEnumerable<GetTenderStatusDTO>>> GetTenderStatus(string NormalZonal)
         {
+            string whclausez = "  ";
+
+            if (NormalZonal == "Z")
+            {
+                whclausez = " and t.IsZonal is not null ";
+            }
+            if (NormalZonal == "N")
+            {
+                whclausez = " and t.IsZonal is null ";
+            }
+            else
+            {
+
+            }
 
 
-            string query = $@"   select PGroupID,TenderStatus,
+            string query = $@" select PGroupID,PPID,TenderStatus,
  count(distinct TenderID) as nosTender,count(work_id) as nosWorks,
 isnull(cast(sum(Valueworksinlas)/100 as decimal(18,2)),0)  TotalValuecr
 
@@ -1078,16 +1092,155 @@ where p.NewProgress='Y'
  and wg.PGroupID in (3,4,6)
 ) pl on pl.Work_id=tw.work_id
 
-where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null 
-) a group by TenderStatus,PGroupID order by PGroupID
+where  1=1 and t.rejid is null and w.IsDeleted is null " + whclausez + @" 
+) a group by TenderStatus,PGroupID,PPID order by PGroupID,PPID  ";
 
 
-
-  ";
 
             var result = await _context.GetTenderStatusDbSet
                 .FromSqlRaw(query)
                 .ToListAsync();
+
+            return Ok(result);
+        }
+
+
+        //https://localhost:7247/api/EMS/GetTenderStatusDetail
+        [HttpGet("GetTenderStatusDetail")]
+        public async Task<ActionResult<IEnumerable<GetTenderStatusDetailDTO>>> GetTenderStatusDetail(Int32 pGroupId, Int32 ppid)
+        {
+            string whPgroupId = "";
+
+            string query = $@" ";
+
+            if (pGroupId == 0) //All
+            {
+                query = $@"  select  pl.ParentProgress as TenderStatus,
+tw.work_id,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname,
+
+t.tenderno,t.eprocno,
+cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmount,convert(varchar,t.startdt,105) startdt,convert(varchar,t.enddt,105) as enddate ,tw.noofcalls
+,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
+
+,case when pl.PGroupID=3 then ( case when  (enddt>=getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 'Live' else 'Tnder Closed,Pending to Open' end) else  pl.ParentProgress end as Tstatus
+
+,PGroupID,t.TenderID,t.rejid from MasTenderWorks tw
+inner join MasTender t on t.TenderID=tw.tenderid
+inner join WorkMaster w on w.work_id=tw.work_id
+inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
+left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join  
+(
+select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p
+inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
+inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
+where p.NewProgress='Y' 
+ and wg.PGroupID in (3,4,6)
+) pl on pl.Work_id=tw.work_id where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null
+order by t.startdt  ";
+            }
+
+            if (pGroupId == 3 && ppid == 3) //Live
+            {
+                query = $@"  
+ select  pl.ParentProgress as TenderStatus,
+tw.work_id,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname,
+
+t.tenderno,t.eprocno,
+cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmount,convert(varchar,t.startdt,105) startdt,convert(varchar,t.enddt,105) as enddate ,tw.noofcalls
+,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
+,case when  (enddt>=getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 'Live' else 'Tnder Closed,Pending to Open' end  as Tstatus
+
+,PGroupID,t.TenderID,t.rejid from MasTenderWorks tw
+inner join MasTender t on t.TenderID=tw.tenderid
+inner join WorkMaster w on w.work_id=tw.work_id
+inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
+left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join  
+(
+select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p
+inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
+inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
+where p.NewProgress='Y' 
+ and wg.PGroupID in (3)
+) pl on pl.Work_id=tw.work_id where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null
+  ";
+            }
+
+
+            if (pGroupId == 4)
+            {
+                string whPpid = "";
+
+                if (ppid == 21 || ppid == 24 || ppid == 22) // 21 - Cover A Evolution, 24 - Cover B, 22- Cover C
+                {
+                    whPpid = " and wpp.PPID="+ ppid + "  ";
+                }
+
+                
+
+
+                query = $@"  select  pl.ParentProgress as TenderStatus,
+tw.work_id,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname,
+
+t.tenderno,t.eprocno,
+cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmount,convert(varchar,t.startdt,105) startdt,convert(varchar,t.enddt,105) as enddate ,tw.noofcalls
+,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
+,pl.ParentProgress  as Tstatus
+
+,PGroupID,t.TenderID,t.rejid from MasTenderWorks tw
+inner join MasTender t on t.TenderID=tw.tenderid
+inner join WorkMaster w on w.work_id=tw.work_id
+inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
+left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join  
+(
+select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p
+inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
+inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
+where p.NewProgress='Y' 
+ and wg.PGroupID in (4) "+ whPpid + @"
+) pl on pl.Work_id=tw.work_id where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null ";
+            }
+
+            if (pGroupId == 6)
+            {
+                string whPpid = "";
+
+                if (ppid == 4) //Acceptance
+                {
+                    whPpid = " and wpp.PPID=" + ppid + "  ";
+                }
+
+                query = $@"  select  pl.ParentProgress as TenderStatus,
+tw.work_id,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname,
+
+t.tenderno,t.eprocno,
+cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmount,convert(varchar,t.startdt,105) startdt,convert(varchar,t.enddt,105) as enddate ,tw.noofcalls
+,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
+,'LOI Generated' as Tstatus
+
+,PGroupID,t.TenderID,t.rejid from MasTenderWorks tw
+inner join MasTender t on t.TenderID=tw.tenderid
+inner join WorkMaster w on w.work_id=tw.work_id
+inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
+left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join  
+(
+select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p
+inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
+inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
+where p.NewProgress='Y' 
+ and wg.PGroupID in (6) "+ whPpid + @"
+) pl on pl.Work_id=tw.work_id where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null  ";
+            }
+
+
+
+
+            var result = await _context.GetTenderStatusDetailDbSet
+        .FromSqlRaw(query)
+        .ToListAsync();
 
             return Ok(result);
         }
