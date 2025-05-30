@@ -18,10 +18,10 @@
         public int? NoOfItems { get; set; }
         public decimal? TenderValue { get; set; }
 
-        public bool? cover_a { get; set; }
-        public bool? cover_b { get; set; }
-        public bool? cover_Demo { get; set; }
-        public bool? cover_c { get; set; }
+        public string? cover_a { get; set; }
+        public string? cover_b { get; set; }
+        public string? cover_Demo { get; set; }
+        public string? cover_c { get; set; }
 
         //public int? TENDER_ID { get; set; }
         //public string? TENDER_NO { get; set; }
