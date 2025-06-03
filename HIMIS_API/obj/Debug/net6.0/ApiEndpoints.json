@@ -164,6 +164,11 @@
         "Name": "mainschemeid",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -203,6 +208,11 @@
       },
       {
         "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -246,11 +256,62 @@
         "Name": "mainschemeid",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DetailsProgress.TobeTenderDash, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.DetailProgress",
+    "Method": "TotalWorksAbstract",
+    "RelativePath": "api/DetailProgress/TotalWorksAbstract",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "contractorid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DetailsProgress.WORunningHandDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -292,11 +353,108 @@
         "Name": "contractorid",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.DetailsProgress.WORunningHandDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.EMSController",
+    "Method": "GetEqpRC",
+    "RelativePath": "api/EMS/GetEqpRC",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tenderID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.EMS.GetEqpRCDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.EMSController",
+    "Method": "GetEqpTender",
+    "RelativePath": "api/EMS/GetEqpTender",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.EMS.GetEqpTenderDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.EMSController",
+    "Method": "GetTenderDetail",
+    "RelativePath": "api/EMS/GetTenderDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "csid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.EMS.GetTenderDetailDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.EMSController",
+    "Method": "GetTotalTendersByStatus",
+    "RelativePath": "api/EMS/GetTotalTendersByStatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.EMS.GetTotalTendersByStatusDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -456,6 +614,16 @@
         "Name": "SWId",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "fromdt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -510,6 +678,11 @@
       },
       {
         "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainSchemeId",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -582,6 +755,11 @@
       },
       {
         "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MainSchemeID",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -864,6 +1042,21 @@
       },
       {
         "Name": "distid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASAmount",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "GrantID",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ASID",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -1334,6 +1527,57 @@
   },
   {
     "ContainingType": "HIMIS_API.Controllers.RunningWork",
+    "Method": "RunningDelayWorksDetails",
+    "RelativePath": "api/RunningWork/RunningDelayWorksDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "delayTime",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "parameter",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "divisionid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "districtid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mainschemeid",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "contractorid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.RunningWork.RunningWorkDetailsDelnTimeDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.RunningWork",
     "Method": "RunningWorkSummary",
     "RelativePath": "api/RunningWork/RunningWorkSummary",
     "HttpMethod": "GET",
@@ -1528,6 +1772,63 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.EvaluatinoDetailsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "GetTenderStatus",
+    "RelativePath": "api/TenderStatus/GetTenderStatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "NormalZonal",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.GetTenderStatusDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "GetTenderStatusDetail",
+    "RelativePath": "api/TenderStatus/GetTenderStatusDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pGroupId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ppid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.GetTenderStatusDetailDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1923,6 +2224,589 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.LandIssue.TSSummaryDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetCivilTenderList",
+    "RelativePath": "api/WebCgmsc/GetCivilTenderList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "n",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.CivilTenderDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetCivilTenderListAll",
+    "RelativePath": "api/WebCgmsc/GetCivilTenderListAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.CivilTenderAllDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetContentAttachment",
+    "RelativePath": "api/WebCgmsc/GetContentAttachment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contentRegId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetContentAttachmentDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetContentCategory",
+    "RelativePath": "api/WebCgmsc/GetContentCategory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "s1",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.ContentCategoryDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetContentHeader",
+    "RelativePath": "api/WebCgmsc/GetContentHeader",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contentRegId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetContentHeaderDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetDept",
+    "RelativePath": "api/WebCgmsc/GetDept",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetDeptDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetDrugTenderList",
+    "RelativePath": "api/WebCgmsc/GetDrugTenderList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "n",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.DrugTenderDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetDrugTenderListAll",
+    "RelativePath": "api/WebCgmsc/GetDrugTenderListAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetDrugTenderListAllDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetEmployee",
+    "RelativePath": "api/WebCgmsc/GetEmployee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "coreDept",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetEmployeeDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetEqpBlacklistedFirms",
+    "RelativePath": "api/WebCgmsc/GetEqpBlacklistedFirms",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetEqpBlacklistedFirmsDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetEqpProductBlacklisted",
+    "RelativePath": "api/WebCgmsc/GetEqpProductBlacklisted",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetEqpProductBlacklistedDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetEquipmentList",
+    "RelativePath": "api/WebCgmsc/GetEquipmentList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "n",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.EquipmentDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetEquipmentListAll",
+    "RelativePath": "api/WebCgmsc/GetEquipmentListAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetDrugTenderListAllDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetFirmBlacklisted",
+    "RelativePath": "api/WebCgmsc/GetFirmBlacklisted",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetFirmBlacklistedDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetHRarchiveParticular",
+    "RelativePath": "api/WebCgmsc/GetHRarchiveParticular",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contentCategoryCode",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetHRarchiveParticularDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetHRPartDeptCatParticular",
+    "RelativePath": "api/WebCgmsc/GetHRPartDeptCatParticular",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "s1",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "s2",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.HRContentDeptCatDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetMostVisitedContentList",
+    "RelativePath": "api/WebCgmsc/GetMostVisitedContentList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "n",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.MostVisitedContentDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetNewsLightBoxItems",
+    "RelativePath": "api/WebCgmsc/GetNewsLightBoxItems",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.DynamicLightBoxDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetNoticCircular",
+    "RelativePath": "api/WebCgmsc/GetNoticCircular",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetNoticCircularDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetOtherTenderList",
+    "RelativePath": "api/WebCgmsc/GetOtherTenderList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "n",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.OtherTenderDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetOtherTenderListAll",
+    "RelativePath": "api/WebCgmsc/GetOtherTenderListAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.CivilTenderAllDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetProductBlacklisted",
+    "RelativePath": "api/WebCgmsc/GetProductBlacklisted",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.GetProductBlacklistedDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetQCTenderAttachments",
+    "RelativePath": "api/WebCgmsc/GetQCTenderAttachments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registrationId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.QCTenderAttachmentDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetRecruitmentDepartments",
+    "RelativePath": "api/WebCgmsc/GetRecruitmentDepartments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.RecruitmentDeptDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.WebCgmscController",
+    "Method": "GetTenderRef",
+    "RelativePath": "api/WebCgmsc/GetTenderRef",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetTenderRefDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2482,6 +3366,11 @@
         "Name": "districtid",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "MainSchemeID",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -2526,6 +3415,11 @@
       },
       {
         "Name": "todt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MainSchemeID",
         "Type": "System.String",
         "IsRequired": false
       }

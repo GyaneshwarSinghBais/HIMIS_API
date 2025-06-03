@@ -1115,16 +1115,16 @@ where  1=1 and t.rejid is null and w.IsDeleted is null " + whclausez + @"
 
             if (pGroupId == 0) //All
             {
-                query = $@"  select  pl.ParentProgress as TenderStatus,
+                query = $@"  select  isnull(tsr.tenderstatus, pl.ParentProgress) as TenderStatus,
 tw.work_id,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname,
 
 t.tenderno,t.eprocno,
 cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmount,convert(varchar,t.startdt,105) startdt,convert(varchar,t.enddt,105) as enddate ,tw.noofcalls
 ,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
 
-,case when pl.PGroupID=3 then ( case when  (enddt>=getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 'Live' else 'Tnder Closed,Pending to Open' end) else  pl.ParentProgress end as Tstatus
+,(case when pl.PGroupID=3 then ( case when  (enddt>=getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 'Live' else 'Tnder Closed,Pending to Open' end) else  pl.ParentProgress end) as Tstatus
 
-,PGroupID,t.TenderID,t.rejid from MasTenderWorks tw
+,PGroupID,t.TenderID,t.rejid,tsr.tenderremark,tsr.entrydate from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
@@ -1136,14 +1136,28 @@ inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
 inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
 where p.NewProgress='Y' 
  and wg.PGroupID in (3,4,6)
-) pl on pl.Work_id=tw.work_id where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null
+) pl on pl.Work_id=tw.work_id 
+
+left outer join
+(
+
+select tr.tender_id,  tr.tenderremark,
+convert(varchar, tr.entrydate,103) as entrydate
+,t.tenderstatus,tr.TSID 
+from
+TENDERSTATUSREMARK tr 
+inner join TENDERSTATUSMASTER t  on t.tsid=tr.tsid
+where tr.ISNEW='Y'  
+
+)tsr on  tsr.tender_id=t.TenderID 
+where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null
 order by t.startdt  ";
             }
 
             if (pGroupId == 3 && ppid == 3) //Live
             {
                 query = $@"  
- select  pl.ParentProgress as TenderStatus,
+ select  isnull(tsr.tenderstatus, pl.ParentProgress)  as TenderStatus,
 tw.work_id,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname,
 
 t.tenderno,t.eprocno,
@@ -1151,7 +1165,7 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
 ,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
 ,case when  (enddt>=getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 'Live' else 'Tnder Closed,Pending to Open' end  as Tstatus
 
-,PGroupID,t.TenderID,t.rejid from MasTenderWorks tw
+,PGroupID,t.TenderID,t.rejid,tsr.tenderremark,tsr.entrydate from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
@@ -1163,8 +1177,23 @@ inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
 inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
 where p.NewProgress='Y' 
  and wg.PGroupID in (3)
-) pl on pl.Work_id=tw.work_id where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null
-  ";
+) pl on pl.Work_id=tw.work_id
+
+left outer join
+(
+
+select tr.tender_id,  tr.tenderremark,
+convert(varchar, tr.entrydate,103) as entrydate
+,t.tenderstatus,tr.TSID 
+from
+TENDERSTATUSREMARK tr 
+inner join TENDERSTATUSMASTER t  on t.tsid=tr.tsid
+where tr.ISNEW='Y'  
+
+)tsr on  tsr.tender_id=t.TenderID 
+
+
+where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null order by t.startdt ";
             }
 
 
@@ -1180,7 +1209,7 @@ where p.NewProgress='Y'
                 
 
 
-                query = $@"  select  pl.ParentProgress as TenderStatus,
+                query = $@"  select  isnull(tsr.tenderstatus, pl.ParentProgress)  as TenderStatus,
 tw.work_id,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname,
 
 t.tenderno,t.eprocno,
@@ -1188,7 +1217,7 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
 ,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
 ,pl.ParentProgress  as Tstatus
 
-,PGroupID,t.TenderID,t.rejid from MasTenderWorks tw
+,PGroupID,t.TenderID,t.rejid,tsr.tenderremark,tsr.entrydate from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
@@ -1199,8 +1228,23 @@ select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgre
 inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
 inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
 where p.NewProgress='Y' 
- and wg.PGroupID in (4) "+ whPpid + @"
-) pl on pl.Work_id=tw.work_id where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null ";
+ and wg.PGroupID in (4) " + whPpid + @"
+) pl on pl.Work_id=tw.work_id 
+
+left outer join
+(
+
+select tr.tender_id,  tr.tenderremark,
+convert(varchar, tr.entrydate,103) as entrydate
+,t.tenderstatus,tr.TSID 
+from
+TENDERSTATUSREMARK tr 
+inner join TENDERSTATUSMASTER t  on t.tsid=tr.tsid
+where tr.ISNEW='Y'  
+
+)tsr on  tsr.tender_id=t.TenderID 
+
+where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null order by t.startdt ";
             }
 
             if (pGroupId == 6)
@@ -1212,7 +1256,7 @@ where p.NewProgress='Y'
                     whPpid = " and wpp.PPID=" + ppid + "  ";
                 }
 
-                query = $@"  select  pl.ParentProgress as TenderStatus,
+                query = $@"  select  isnull(tsr.tenderstatus, pl.ParentProgress)  as TenderStatus,
 tw.work_id,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname,
 
 t.tenderno,t.eprocno,
@@ -1231,8 +1275,24 @@ select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgre
 inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
 inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
 where p.NewProgress='Y' 
- and wg.PGroupID in (6) "+ whPpid + @"
-) pl on pl.Work_id=tw.work_id where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null  ";
+ and wg.PGroupID in (6) " + whPpid + @"
+) pl on pl.Work_id=tw.work_id
+
+left outer join
+(
+
+select tr.tender_id,  tr.tenderremark,
+convert(varchar, tr.entrydate,103) as entrydate
+,t.tenderstatus,tr.TSID 
+from
+TENDERSTATUSREMARK tr 
+inner join TENDERSTATUSMASTER t  on t.tsid=tr.tsid
+where tr.ISNEW='Y'  
+
+)tsr on  tsr.tender_id=t.TenderID 
+
+
+where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null order by t.startdt  ";
             }
 
 

@@ -19,5 +19,8 @@
         public int? PGroupID { get; set; }
         public int? TenderID { get; set; }
         public int? RejId { get; set; }
+  
+        public string? tenderremark { get; set; }
+        public string? entrydate { get; set; }
     }
 }
