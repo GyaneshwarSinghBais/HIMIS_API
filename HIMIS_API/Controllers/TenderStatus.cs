@@ -1311,12 +1311,13 @@ where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null ord
         {
 
 
-            string query = $@"   select mt.TID,mt.CovName as TenderStatus,isnull(CntTender,0) as CntTender from masTenderStatus mt
+            string query = $@"   select mt.TID,mt.CovName as TenderStatus,isnull(CntTender,0) as CntTender, CAST(ISNULL(TenderValue, 0) AS VARCHAR) AS TenderValue
+  from masTenderStatus mt
  
  left outer join 
 (
 
-select TID,CovName,count( distinct x.TenderID) as CntTender from  
+select TID,CovName,count( distinct x.TenderID) as CntTender, sum(Capacity) as TenderValue  from  
 (
 
 select t.TenderID,t.TenderNo,t.eProcNo,t.Discription,convert(varchar,t.startDT,103) as startDT 

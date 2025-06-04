@@ -9,5 +9,7 @@ namespace HIMIS_API.Models.Tender
         //public int? WorkId { get; set; }
         public string? TenderStatus { get; set; }
         public Int32? CntTender { get; set; }
+        public string? TenderValue { get; set; }
+        
     }
 }
