@@ -1387,12 +1387,12 @@ where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') 
 
             string query = $@" SELECT 
     CAST(t.TenderID AS VARCHAR) AS TenderID,
-    t.TenderNo,
-    t.eProcNo,
+    CAST(t.TenderNo AS VARCHAR) AS TenderNo,
+    CAST(t.eProcNo AS VARCHAR) AS eProcNo,    
     t.Discription,
     CONVERT(VARCHAR, t.startDT, 103) AS startDT,
     CONVERT(VARCHAR, t.endDT, 103) AS endDT,
-    CAST(t.Capacity AS BIGINT) AS Capacity,
+    CAST(t.Capacity AS VARCHAR) AS Capacity,
     t.ZonalType,
     d.DBStart_Name_En AS district,
 
