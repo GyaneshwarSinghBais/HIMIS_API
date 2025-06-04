@@ -1385,22 +1385,34 @@ where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') 
                 whTid = @" and mt.TID= "+ tid + @" ";
             }
 
-            string query = $@"  select t.TenderID,t.TenderNo,t.eProcNo,t.Discription,convert(varchar,t.startDT,103) as startDT 
-,convert(varchar,t.endDT,103) as  endDT,cast(t.Capacity as bigint) as Capacity 
-,t.ZonalType ,d.DBStart_Name_En district,
+            string query = $@" SELECT 
+    CAST(t.TenderID AS VARCHAR) AS TenderID,
+    t.TenderNo,
+    t.eProcNo,
+    t.Discription,
+    CONVERT(VARCHAR, t.startDT, 103) AS startDT,
+    CONVERT(VARCHAR, t.endDT, 103) AS endDT,
+    CAST(t.Capacity AS BIGINT) AS Capacity,
+    t.ZonalType,
+    d.DBStart_Name_En AS district,
 
-case when t.ZonalType='Block' then  b.Block_Name_En 
-else case when t.ZonalType='NagarPalikaParishad' then ps.NagarPalika 
-else  case when t.ZonalType='NagarNigam' then nn.NagarNigam else '' end end end as block
+    CASE 
+        WHEN t.ZonalType = 'Block' THEN b.Block_Name_En 
+        WHEN t.ZonalType = 'NagarPalikaParishad' THEN ps.NagarPalika 
+        WHEN t.ZonalType = 'NagarNigam' THEN nn.NagarNigam 
+        ELSE '' 
+    END AS block,
 
-,d.District_ID as DistrictID,NagarNigam 
+    CAST(d.District_ID AS VARCHAR) AS DistrictID,
+    NagarNigam,
 
+    CAST(ISNULL(t.calls, 1) AS VARCHAR) AS calls,
+    ISNULL(tsr.tenderstatus, CovName) AS tenderstatus,
+    tsr.tenderremark,
+    tsr.entrydate,
 
-,isnull(t.calls,1) as calls  --,t2.TenderNo
-, ISNULL(tsr.tenderstatus,CovName) as tenderstatus,tsr.tenderremark,tsr.entrydate
-
-,convert(varchar,t.TOpnedDT,103) CoverA,
- convert(varchar,t.topnedpricedt,103) as CoverC
+    CONVERT(VARCHAR, t.TOpnedDT, 103) AS CoverA,
+    CONVERT(VARCHAR, t.topnedpricedt, 103) AS CoverC
 from MasTender t 
 left outer join Districts d on d.District_ID = t.DistrictID
 left outer join BlocksMaster b on b.Block_ID = (case when LEN(Blockid)=1 then '0'+ convert(varchar, Blockid) else Blockid end) and b.District_ID = d.District_ID
@@ -1426,7 +1438,7 @@ left outer join masTenderStatus mt on  mt.TID=tsr.TID
 
 where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') ='No'
  and t.IsCompleteWorkorder  is null 
- "+ whTid + @"  ";
+ " + whTid + @"  ";
 
             var result = await _context.ZonalTenderStatusDetailDbSet
                 .FromSqlRaw(query)
