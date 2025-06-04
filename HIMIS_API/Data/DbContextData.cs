@@ -11,6 +11,7 @@ using HIMIS_API.Models.TS;
 using HIMIS_API.Models.WebCGMSC;
 using HIMIS_API.Models.WorkOrder;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace HIMIS_API.Data
 {
@@ -90,7 +91,11 @@ namespace HIMIS_API.Data
         public DbSet<RunningWorkDetailsDelnTimeDTO> RunningWorkDetailsDelnTimeDbSet { get; set; }
         public DbSet<GetTenderStatusDTO> GetTenderStatusDbSet { get; set; }
         public DbSet<GetTenderStatusDetailDTO> GetTenderStatusDetailDbSet { get; set; }
+
+        public DbSet<ZonalTenderStatusDTO> ZonalTenderStatusDbSet { get; set; }
+        public DbSet<ZonalTenderStatusDetailDTO> ZonalTenderStatusDetailDbSet { get; set; }
         
+
 
 
 
@@ -101,6 +106,8 @@ namespace HIMIS_API.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<GetTenderStatusDTO>().HasNoKey();
             modelBuilder.Entity<GetTenderStatusDetailDTO>().HasNoKey();
+            modelBuilder.Entity<ZonalTenderStatusDetailDTO>().HasNoKey();
+            
         }
 
 

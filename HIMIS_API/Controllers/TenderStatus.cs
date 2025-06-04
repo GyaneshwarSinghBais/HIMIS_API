@@ -1262,7 +1262,7 @@ tw.work_id,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname,
 t.tenderno,t.eprocno,
 cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmount,convert(varchar,t.startdt,105) startdt,convert(varchar,t.enddt,105) as enddate ,tw.noofcalls
 ,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
-,'LOI Generated' as Tstatus
+,'LOI Generated' as Tstatus,entrydate,tenderremark
 
 ,PGroupID,t.TenderID,t.rejid from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
@@ -1301,6 +1301,136 @@ where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null ord
             var result = await _context.GetTenderStatusDetailDbSet
         .FromSqlRaw(query)
         .ToListAsync();
+
+            return Ok(result);
+        }
+
+
+        [HttpGet("ZonalTenderStatus")]
+        public async Task<ActionResult<IEnumerable<ZonalTenderStatusDTO>>> ZonalTenderStatus()
+        {
+
+
+            string query = $@"   select mt.TID,mt.CovName as TenderStatus,isnull(CntTender,0) as CntTender from masTenderStatus mt
+ 
+ left outer join 
+(
+
+select TID,CovName,count( distinct x.TenderID) as CntTender from  
+(
+
+select t.TenderID,t.TenderNo,t.eProcNo,t.Discription,convert(varchar,t.startDT,103) as startDT 
+,convert(varchar,t.endDT,103) as  endDT,cast(t.Capacity as bigint) as Capacity 
+,t.ZonalType ,d.DBStart_Name_En district,
+
+case when t.ZonalType='Block' then  b.Block_Name_En 
+else case when t.ZonalType='NagarPalikaParishad' then ps.NagarPalika 
+else  case when t.ZonalType='NagarNigam' then nn.NagarNigam else '' end end end as block
+
+,d.District_ID as DistrictID,NagarNigam 
+
+
+,isnull(t.calls,1) as calls  --,t2.TenderNo
+, ISNULL(tsr.tenderstatus,CovName) as tenderstatus,tsr.tenderremark,tsr.entrydate,mt.CovName,mt.TID
+
+,convert(varchar,t.TOpnedDT,103) CoverA,
+ convert(varchar,t.topnedpricedt,103) as CoverC
+from MasTender t 
+left outer join Districts d on d.District_ID = t.DistrictID
+left outer join BlocksMaster b on b.Block_ID = (case when LEN(Blockid)=1 then '0'+ convert(varchar, Blockid) else Blockid end) and b.District_ID = d.District_ID
+left outer join MasNagarPalika ps on cast(ps.npid as int) = cast(t.NPID as int) and ps.DistrictID = d.District_ID
+left outer join MasNagarNigam nn on nn.NNID = t.NNID and nn.DistrictID = d.District_ID
+left outer join ContractMaster c on c.Contractorid = t.ContractorID
+left outer join MasTender t2 on t2.tenderid=t.TRefID
+
+left outer join
+(
+
+select tr.tender_id,  tr.tenderremark,
+convert(varchar, tr.entrydate,103) as entrydate
+,t.tenderstatus,tr.TSID,tr.TID 
+from
+TENDERSTATUSREMARK tr 
+inner join TENDERSTATUSMASTER t  on t.tsid=tr.tsid
+where tr.ISNEW='Y'  
+
+)tsr on  tsr.tender_id=t.TenderID 
+left outer join masTenderStatus mt on  mt.TID=tsr.TID
+
+
+where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') ='No'
+ and t.IsCompleteWorkorder  is null 
+ --and mt.TID=1
+
+ )x group by CovName,TID
+ 
+ )TS on   TS.TID=mt.TID
+ order By mt.TID
+ ";
+
+            var result = await _context.ZonalTenderStatusDbSet
+                .FromSqlRaw(query)
+                .ToListAsync();
+
+            return Ok(result);
+        }
+
+        [HttpGet("ZonalTenderStatusDetail")]
+        public async Task<ActionResult<IEnumerable<ZonalTenderStatusDetailDTO>>> ZonalTenderStatusDetail(Int32 tid)
+        {
+            string whTid = "";
+
+            if(tid != 0) 
+            {
+                whTid = @" and mt.TID= "+ tid + @" ";
+            }
+
+            string query = $@"  select t.TenderID,t.TenderNo,t.eProcNo,t.Discription,convert(varchar,t.startDT,103) as startDT 
+,convert(varchar,t.endDT,103) as  endDT,cast(t.Capacity as bigint) as Capacity 
+,t.ZonalType ,d.DBStart_Name_En district,
+
+case when t.ZonalType='Block' then  b.Block_Name_En 
+else case when t.ZonalType='NagarPalikaParishad' then ps.NagarPalika 
+else  case when t.ZonalType='NagarNigam' then nn.NagarNigam else '' end end end as block
+
+,d.District_ID as DistrictID,NagarNigam 
+
+
+,isnull(t.calls,1) as calls  --,t2.TenderNo
+, ISNULL(tsr.tenderstatus,CovName) as tenderstatus,tsr.tenderremark,tsr.entrydate
+
+,convert(varchar,t.TOpnedDT,103) CoverA,
+ convert(varchar,t.topnedpricedt,103) as CoverC
+from MasTender t 
+left outer join Districts d on d.District_ID = t.DistrictID
+left outer join BlocksMaster b on b.Block_ID = (case when LEN(Blockid)=1 then '0'+ convert(varchar, Blockid) else Blockid end) and b.District_ID = d.District_ID
+left outer join MasNagarPalika ps on cast(ps.npid as int) = cast(t.NPID as int) and ps.DistrictID = d.District_ID
+left outer join MasNagarNigam nn on nn.NNID = t.NNID and nn.DistrictID = d.District_ID
+left outer join ContractMaster c on c.Contractorid = t.ContractorID
+left outer join MasTender t2 on t2.tenderid=t.TRefID
+
+left outer join
+(
+
+select tr.tender_id,  tr.tenderremark,
+convert(varchar, tr.entrydate,103) as entrydate
+,t.tenderstatus,tr.TSID,tr.TID 
+from
+TENDERSTATUSREMARK tr 
+inner join TENDERSTATUSMASTER t  on t.tsid=tr.tsid
+where tr.ISNEW='Y'  
+
+)tsr on  tsr.tender_id=t.TenderID 
+left outer join masTenderStatus mt on  mt.TID=tsr.TID
+
+
+where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') ='No'
+ and t.IsCompleteWorkorder  is null 
+ "+ whTid + @"  ";
+
+            var result = await _context.ZonalTenderStatusDetailDbSet
+                .FromSqlRaw(query)
+                .ToListAsync();
 
             return Ok(result);
         }
