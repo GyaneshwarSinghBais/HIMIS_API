@@ -1092,7 +1092,7 @@ where p.NewProgress='Y'
  and wg.PGroupID in (3,4,6)
 ) pl on pl.Work_id=tw.work_id
 
-where  1=1 and t.rejid is null and w.IsDeleted is null  "+ whclausez + @"  
+where  1=1 and t.rejid is null and w.IsDeleted is null  " + whclausez + @"  
 ) a group by TenderStatus,PGroupID,PPID 
 
 union
@@ -1148,36 +1148,36 @@ and t.IsZonal is null
 
 )x order by PGroupID,PPID ";
 
-//            string query = $@" select PGroupID,PPID,TenderStatus,
-// count(distinct TenderID) as nosTender,count(work_id) as nosWorks,
-//isnull(cast(sum(Valueworksinlas)/100 as decimal(18,2)),0)  TotalValuecr
+            //            string query = $@" select PGroupID,PPID,TenderStatus,
+            // count(distinct TenderID) as nosTender,count(work_id) as nosWorks,
+            //isnull(cast(sum(Valueworksinlas)/100 as decimal(18,2)),0)  TotalValuecr
 
-//from 
-//(
- 
-// select  PGroupID,pl.ParentProgress as TenderStatus,
-//                        tw.work_id,
-//                        t.tenderno,t.eprocno,cast(AaAmt as decimal(18,2)) as ASAmt,
-//                        convert(varchar,t.startdt,105) startdt,convert(varchar,t.enddt,105) as enddate ,tw.noofcalls,t.TenderID
-//,convert(varchar,tw.TOpnedDT,103) TOpnedDate,cast(TSAmount as decimal(18,2)) as TSAmt
-//,pl.PPID,case when isnull(TSAmount,0) >0 then TSAmount else AaAmt end as Valueworksinlas,
-//t.enddt ,t.rejid,t.topneddt,t.topnedbdt, t.topnedpricedt
-//,case when  (enddt>=getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 1 else 0 end as Live
-//,case when  (enddt<getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 1 else 0 end as LiveTimeOver
-//from MasTenderWorks tw
-//inner join MasTender t on t.TenderID=tw.tenderid
-//inner join WorkMaster w on w.work_id=tw.work_id
-//inner join  
-//(
-//select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p
-//inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
-//inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
-//where p.NewProgress='Y' 
-// and wg.PGroupID in (3,4,6)
-//) pl on pl.Work_id=tw.work_id
+            //from 
+            //(
 
-//where  1=1 and t.rejid is null and w.IsDeleted is null " + whclausez + @" 
-//) a group by TenderStatus,PGroupID,PPID order by PGroupID,PPID  ";
+            // select  PGroupID,pl.ParentProgress as TenderStatus,
+            //                        tw.work_id,
+            //                        t.tenderno,t.eprocno,cast(AaAmt as decimal(18,2)) as ASAmt,
+            //                        convert(varchar,t.startdt,105) startdt,convert(varchar,t.enddt,105) as enddate ,tw.noofcalls,t.TenderID
+            //,convert(varchar,tw.TOpnedDT,103) TOpnedDate,cast(TSAmount as decimal(18,2)) as TSAmt
+            //,pl.PPID,case when isnull(TSAmount,0) >0 then TSAmount else AaAmt end as Valueworksinlas,
+            //t.enddt ,t.rejid,t.topneddt,t.topnedbdt, t.topnedpricedt
+            //,case when  (enddt>=getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 1 else 0 end as Live
+            //,case when  (enddt<getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 1 else 0 end as LiveTimeOver
+            //from MasTenderWorks tw
+            //inner join MasTender t on t.TenderID=tw.tenderid
+            //inner join WorkMaster w on w.work_id=tw.work_id
+            //inner join  
+            //(
+            //select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p
+            //inner join  WorkLevelParent wpp on wpp.ppid=p.ppid
+            //inner join WorkLevelParentGroup wg on wg.PGroupID=wpp.PGroupID
+            //where p.NewProgress='Y' 
+            // and wg.PGroupID in (3,4,6)
+            //) pl on pl.Work_id=tw.work_id
+
+            //where  1=1 and t.rejid is null and w.IsDeleted is null " + whclausez + @" 
+            //) a group by TenderStatus,PGroupID,PPID order by PGroupID,PPID  ";
 
 
 
@@ -1287,10 +1287,10 @@ where  1=1 and t.rejid is null and w.IsDeleted is null and t.IsZonal is null ord
 
                 if (ppid == 21 || ppid == 24 || ppid == 22) // 21 - Cover A Evolution, 24 - Cover B, 22- Cover C
                 {
-                    whPpid = " and wpp.PPID="+ ppid + "  ";
+                    whPpid = " and wpp.PPID=" + ppid + "  ";
                 }
 
-                
+
 
 
                 query = $@"  select  isnull(tsr.tenderstatus, pl.ParentProgress)  as TenderStatus,
@@ -1465,9 +1465,9 @@ where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') 
         {
             string whTid = "";
 
-            if(tid != 0) 
+            if (tid != 0)
             {
-                whTid = @" and mt.TID= "+ tid + @" ";
+                whTid = @" and mt.TID= " + tid + @" ";
             }
 
             string query = $@" SELECT 
@@ -1532,6 +1532,64 @@ where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') 
             return Ok(result);
         }
 
+        [HttpGet("GetToBeTender")]
+        public async Task<ActionResult<IEnumerable<GetToBeTenderDTO>>> GetToBeTender()
+        {
+
+
+            string query = $@"  select Head,Division,District,Work_id,workname, letterno as ASLetterNO,ASDate,ASAmt,TSAmount,ValueWorks,DashName as WorkStatus
+ from (
+select msc.MainSchemeID, msc.Name as Head,dv.divname_en as Division,dis.DBStart_Name_En as District,b.Block_Name_En,hc.DETAILS_ENG,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname
+,w.letterno,convert(varchar,AADate,105) as ASDate
+,  isnull(cast(w.AaAmt as decimal(18,2)),0) as ASAmt, isnull(w.TSAmount,0) as TSAmount
+,case when isnull(w.TSAmount,0)>0 then cast(w.TSAmount as decimal(18,2)) else  isnull(cast(w.AaAmt as decimal(18,2)),0) end as  ValueWorks
+,wpp.parentprogress,wpp.ppid
+
+,p.wocancelletterno,convert(varchar,p.ProgressDT,105) as PDate,
+p.WOCancelProposalLetterNo
+,p.Work_id
+,p.ppid as OldPPID,wpg.GroupName,wpg.PGroupID,dash.did,dash.DashName
+,t.TenderNo as LastNIT,t.eProcNo as LastEprocno,rj.RejReason,convert(varchar,t.RejEntryDT,105) as RejectedDT
+,t.iszonal,t.zonaltype
+from  WorkPhysicalProgress p
+inner join WorkMaster w on w.work_id=p.work_id
+
+inner join MainSchemes msc on msc.MainSchemeID = w.MainSchemeID
+inner join Districts dis on dis.DISTRICT_ID=w.worklocationdist_id
+inner join agencydivisionmaster  agd on agd.DivisionID=w.AllotedDivisionID and agd.DivisionID not in ('D1032')
+inner join division dv on cast(dv.div_id as bigint) =cast(agd.divisionname as  bigint)
+inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
+inner join dhrsHealthCentreType hc on hc.Type_ID=d.type
+left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join WorkLevelParent wpp on wpp.ppid=p.ppid
+inner join WorkLevelParentGroup wpg on wpg.PGroupID=wpp.PGroupID
+inner join WorkLevelParentDash dash on dash.did=wpg.did
+ left outer join BlocksMaster b on cast(b.Block_ID as int) = cast(d.BLOCK_ID as int)  and b.District_ID =dis.District_ID
+ left outer join
+ (
+ select max(twid) twid,Work_id from MasTenderWorks tw
+ where tw.rejid is not null 
+ group by Work_id
+ ) ltw on ltw.Work_id=w.work_id
+ left outer join MasTenderWorks Tw on tw.TWID=ltw.twid
+ left outer join MasTenderRejReason rj on rj.RejID=tw.RejID
+left outer join MasTender t on t.TenderID= Tw.tenderid
+where 1=1
+ and NewProgress='Y' 
+and dash.did =1001
+and t.IsZonal is null
+ and w.isdeleted  is null 
+ and w.MainSchemeID not in (121,137,140,142)
+ and wpp.PPID not in (25)
+ and isnull(cast(w.AaAmt as decimal(18,2)),0)>20
+ )x  ";
+
+            var result = await _context.GetToBeTenderDbSet
+                .FromSqlRaw(query)
+                .ToListAsync();
+
+            return Ok(result);
+        }
 
 
     }
