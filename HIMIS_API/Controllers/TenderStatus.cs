@@ -1450,6 +1450,7 @@ where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') 
  )x group by CovName,TID
  
  )TS on   TS.TID=mt.TID
+where 1=1 and mt.tid not in (6)
  order By mt.TID
  ";
 
