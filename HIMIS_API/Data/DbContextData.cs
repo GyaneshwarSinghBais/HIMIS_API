@@ -95,7 +95,8 @@ namespace HIMIS_API.Data
         public DbSet<ZonalTenderStatusDTO> ZonalTenderStatusDbSet { get; set; }
         public DbSet<ZonalTenderStatusDetailDTO> ZonalTenderStatusDetailDbSet { get; set; }
         public DbSet<GetToBeTenderDTO> GetToBeTenderDbSet { get; set; }
-        
+        public DbSet<ZonalToBeTenderDTO> ZonalToBeTenderDbSet { get; set; }
+
 
 
 
@@ -112,6 +113,7 @@ namespace HIMIS_API.Data
             modelBuilder.Entity<GetTenderStatusDetailDTO>().HasNoKey();
             modelBuilder.Entity<ZonalTenderStatusDetailDTO>().HasNoKey();
             modelBuilder.Entity<GetToBeTenderDTO>().HasNoKey();
+            modelBuilder.Entity<ZonalToBeTenderDTO>().HasNoKey();
 
         }
 

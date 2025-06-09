@@ -1,4 +1,5 @@
-﻿using HIMIS_API.Models.WebCGMSC;
+﻿using HIMIS_API.Models.Tender;
+using HIMIS_API.Models.WebCGMSC;
 using Microsoft.EntityFrameworkCore;
 
 namespace HIMIS_API.Data
@@ -37,6 +38,8 @@ namespace HIMIS_API.Data
         public DbSet<HRContentDeptCatDTO> HRContentDeptCatDbSet { get; set; }
         public DbSet<QCTenderAttachmentDTO> QCTenderAttachmentDbSet { get; set; }
         public DbSet<DynamicLightBoxDTO> DynamicLightBoxDbSet { get; set; }
+    
+        
 
 
 

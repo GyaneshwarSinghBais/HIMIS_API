@@ -1592,6 +1592,120 @@ and t.IsZonal is null
             return Ok(result);
         }
 
+        [HttpGet("ZonalToBeTender")]
+        public async Task<ActionResult<IEnumerable<ZonalToBeTenderDTO>>> ZonalToBeTender()
+        {
+
+
+            string query = $@"  select sum(cntCount) as NoofTender ,sum(TenderValue) as TenderValue from (
+
+select count(distinct District_ID) as cntCount,isnull(sum(BalanceLimit),0) as TenderValue from (
+
+select District_ID,Distname,Divisoinname,runningNIT,acceptanceDate,WorkorderDT,DueDT,Capacity,TVCUSed,BalanceLimit,lastdt
+from 
+(
+
+select District_ID,dbstart_name_en  as Distname,dv.DivName_En as Divisoinname,ut.tenderno,MaxTID,trun.TenderNo as runningNIT,trun.Capacity,round(isnull(usd.tvcUsed,0),2) as TVCUSed,
+round((trun.Capacity-round(isnull(usd.tvcUsed,0),2)),2) BalanceLimit,
+convert(varchar,trun.acceptanceDate,105) acceptanceDate,convert(varchar,trun.WrokOrderDT,105) as WorkorderDT
+,convert(varchar,trun.DueDatecompletion,105) DueDT
+,case when getdate()>trun.DueDatecompletion-30 then 'False'   else case when (round((trun.Capacity-round(isnull(usd.tvcUsed,0),2)),2) )<10 then 'False' else 'True' end  end as lastdt
+ from Districts d
+ inner join Division dv on dv.Div_Id=d.Div_Id
+left outer join 
+(
+select t.districtid,t.tenderno from MasTender t
+where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') ='No'
+and t.ZonalType='District'
+) ut on ut.districtid=d.District_ID
+left outer join 
+(
+select t.DistrictID,max(t.tenderid) MaxTID from MasTender t
+inner join Districts d on d.District_ID=t.districtid
+where t.IsZonal='Y' and isnull(t.IsReject,'No') ='No'
+and t.ZonalType='District' 
+group by t.DistrictID
+) lt on lt.DistrictID=d.District_ID
+left outer join 
+(
+select  a.tenderid,sum(isnull(a.TotalAmountOfContract,0))  as tvcUsed,
+count(distinct a.work_id) as workcount  from  AgreementDetails a 
+inner join MasTender t on t.TenderID=a.tenderid
+inner join WorkMaster w on w.work_id=a.work_id
+where t.IsZonal='Y'  and w.IsDeleted is null
+and t.ZonalType='District' 
+group by a.tenderid
+) usd on usd.tenderid=lt.MaxTID
+
+left outer join MasTender trun on trun.TenderID=lt.MaxTID
+where 1=1 
+and isnull(ut.tenderno,'N')='N' 
+
+) x 
+where x.lastdt='False'
+
+)x
+
+union 
+
+
+select count(Block_ID) as cntCount, isnull(sum(BalanceLimit),0)  as TenderValue from (
+select Block_ID,District_ID,block,Distname,Divisoinname,runningNIT,acceptanceDate,WorkorderDT,DueDT,Capacity,TVCUSed,BalanceLimit,lastdt
+from 
+(
+select d.District_ID,b.Block_Name_En as block,dbstart_name_en  as Distname,dv.DivName_En as Divisoinname,ut.tenderno,MaxTID,trun.TenderNo as runningNIT,trun.Capacity,round(isnull(usd.tvcUsed,0),2) as TVCUSed,
+round((trun.Capacity-round(isnull(usd.tvcUsed,0),2)),2) BalanceLimit,
+convert(varchar,trun.acceptanceDate,105) acceptanceDate,convert(varchar,trun.WrokOrderDT,105) as WorkorderDT
+,convert(varchar,trun.DueDatecompletion,105) DueDT
+,case when getdate()>trun.DueDatecompletion-30 then 'False'   else case when (round((trun.Capacity-round(isnull(usd.tvcUsed,0),2)),2) )<10 then 'False' else 'True' end  end as lastdt
+,b.Block_ID
+ from Districts d
+ inner join BlocksMaster b on  b.District_ID=d.District_ID
+ inner join Division dv on dv.Div_Id=d.Div_Id
+left outer join 
+(
+select t.Blockid,t.districtid,t.tenderno from MasTender t
+where t.IsZonal='Y' and isnull(t.IsAccept,'N') ='N' and isnull(t.IsReject,'No') ='No'
+and t.ZonalType='Block'
+) ut on ut.districtid=d.District_ID and cast(ut.Blockid as int)=cast(b.Block_ID as int) and ut.DistrictID=b.District_ID
+left outer join 
+(
+select cast(t.Blockid as int) as Blockid ,t.DistrictID,max(t.tenderid) MaxTID from MasTender t
+
+ inner join BlocksMaster b on  b.District_ID=t.DistrictID and cast(t.Blockid as int)=cast(b.Block_ID as int)
+inner join Districts d on d.District_ID=b.District_ID
+where t.IsZonal='Y' and isnull(t.IsReject,'No') ='No'
+and t.ZonalType='Block' 
+group by t.DistrictID,cast(t.Blockid as int) 
+) lt on   cast(lt.Blockid as int)=cast(b.Block_ID as int) and lt.DistrictID=b.District_ID
+left outer join 
+(
+select  a.tenderid,sum(isnull(a.TotalAmountOfContract,0))  as tvcUsed,
+count(distinct a.work_id) as workcount  from  AgreementDetails a 
+inner join MasTender t on t.TenderID=a.tenderid
+inner join WorkMaster w on w.work_id=a.work_id
+where t.IsZonal='Y'  and w.IsDeleted is null
+and t.ZonalType='Block' 
+group by a.tenderid
+) usd on usd.tenderid=lt.MaxTID 
+left outer join MasTender trun on trun.TenderID=lt.MaxTID
+where 1=1 and b.Tahsil_ID  is not null and isnull(ut.tenderno,'N')='N'
+and b.IsblockActive='Y'
+) x 
+where x.lastdt='False'
+)y
+
+)z
+
+  ";
+
+            var result = await _context.ZonalToBeTenderDbSet
+                .FromSqlRaw(query)
+                .ToListAsync();
+
+            return Ok(result);
+        }
+
 
     }
 }
