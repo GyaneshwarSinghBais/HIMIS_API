@@ -15,7 +15,9 @@ namespace HIMIS_API.Data
         public DbSet<GetTotalTendersByStatusDTO> GetTotalTendersByStatusDbSet { get; set; }
         public DbSet<GetTenderDetailDTO> GetTenderDetailDbSet { get; set; }
         public DbSet<EqToBeTenderDTO> EqToBeTenderDbSet { get; set; }
+        public DbSet<EqToBeTenderDetailDTO> EqToBeTenderDetailDbSet { get; set; }
         
+
 
 
 
@@ -27,6 +29,7 @@ namespace HIMIS_API.Data
             // Inform EF that DTOs doesn't have a key
             modelBuilder.Entity<GetEqpRCDTO>().HasNoKey();
             modelBuilder.Entity<GetTenderDetailDTO>().HasNoKey();
+            modelBuilder.Entity<EqToBeTenderDetailDTO>().HasNoKey();
 
         }
     }
