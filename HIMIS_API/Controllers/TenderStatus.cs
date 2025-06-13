@@ -1189,6 +1189,7 @@ and t.IsZonal is null
         }
 
 
+       
         //https://localhost:7247/api/EMS/GetTenderStatusDetail
         [HttpGet("GetTenderStatusDetail")]
         public async Task<ActionResult<IEnumerable<GetTenderStatusDetailDTO>>> GetTenderStatusDetail(Int32 pGroupId, Int32 ppid)
@@ -1208,7 +1209,7 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
 
 ,(case when pl.PGroupID=3 then ( case when  (enddt>=getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 'Live' else 'Tnder Closed,Pending to Open' end) else  pl.ParentProgress end) as Tstatus
 
-,PGroupID,t.TenderID,t.rejid,tsr.tenderremark,tsr.entrydate from MasTenderWorks tw
+,PGroupID,t.TenderID,t.rejid,tsr.tenderremark,tsr.entrydate,case when (Datediff(d,t.enddt,getdate()))>90 then 'Red' else case when (Datediff(d,t.enddt,getdate())) between 60  and 90 then 'Yellow' else 'Black' end end as Color from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
@@ -1249,7 +1250,7 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
 ,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
 ,case when  (enddt>=getdate() and t.rejid is null and t.topneddt is null and t.topnedbdt is null  and t.topnedpricedt is null ) then 'Live' else 'Tnder Closed,Pending to Open' end  as Tstatus
 
-,PGroupID,t.TenderID,t.rejid,tsr.tenderremark,tsr.entrydate from MasTenderWorks tw
+,PGroupID,t.TenderID,t.rejid,tsr.tenderremark,tsr.entrydate,case when (Datediff(d,t.enddt,getdate()))>90 then 'Red' else case when (Datediff(d,t.enddt,getdate())) between 60  and 90 then 'Yellow' else 'Black' end end as Color from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
@@ -1301,7 +1302,7 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
 ,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
 ,pl.ParentProgress  as Tstatus
 
-,PGroupID,t.TenderID,t.rejid,tsr.tenderremark,tsr.entrydate from MasTenderWorks tw
+,PGroupID,t.TenderID,t.rejid,tsr.tenderremark,tsr.entrydate,case when (Datediff(d,t.enddt,getdate()))>90 then 'Red' else case when (Datediff(d,t.enddt,getdate())) between 60  and 90 then 'Yellow' else 'Black' end end as Color from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
@@ -1348,7 +1349,7 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
 ,convert(varchar,tw.TOpnedDT,103) CoverADT,convert(varchar,t.topnedbdt,103) as CoverBDT, convert(varchar,t.topnedpricedt,103) as CoverCDT 
 ,'LOI Generated' as Tstatus,entrydate,tenderremark
 
-,PGroupID,t.TenderID,t.rejid from MasTenderWorks tw
+,PGroupID,t.TenderID,t.rejid ,case when (Datediff(d,t.enddt,getdate()))>90 then 'Red' else case when (Datediff(d,t.enddt,getdate())) between 60  and 90 then 'Yellow' else 'Black' end end as Color  from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 

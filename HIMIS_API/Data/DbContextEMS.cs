@@ -14,7 +14,9 @@ namespace HIMIS_API.Data
         public DbSet<GetEqpRCDTO> GetEqpRCDbSet { get; set; }
         public DbSet<GetTotalTendersByStatusDTO> GetTotalTendersByStatusDbSet { get; set; }
         public DbSet<GetTenderDetailDTO> GetTenderDetailDbSet { get; set; }
+        public DbSet<EqToBeTenderDTO> EqToBeTenderDbSet { get; set; }
         
+
 
 
 

@@ -381,12 +381,117 @@ where tr.ISNEW='Y'
             return Ok(result);
         }
 
+        //https://localhost:7247/api/EMS/EqToBeTender
+        [HttpGet("EqToBeTender")]
+        public async Task<ActionResult<IEnumerable<EqToBeTenderDTO>>> EqToBeTender()
+        {
+
+
+            string query = $@"   select count( distinct item_id) CntItems,round(sum(IndentValue)/10000000,2)  as IndentValue  from (
+
+SELECT A.INDENT_CONSOLIDATION_ID,b.item_id,b.indent_cons_items_id,A.description,A.USER_ID,A.DIRECTORATE_ID,A.FINANCIAL_YEAR_ID,SUM(B.PROPOSED_QTY) AS PROPOSED_QTY,A.indent_con_no,
+CONVERT(VARCHAR(10),A.CONSOLIDATED_DATE,103) AS CONSOLIDATED_DATE,SUM(B.FINAL_QTY) AS FINAL_QTY
+,(case when A.STATUS='I' then 'Incomplete' when A.STATUS='C' then 'Completed' else '' end ) EStatus,
+(
+select (case when FileName is null then 'Not Uploaded' else 'Uploaded' end) UStatus from INDENT_CONSOLIDATION where indent_consolidation_id = A.INDENT_CONSOLIDATION_ID
+) as uploadStatus,A.CreatedOn,isnull(B.estimated_cost,0) IndentValue
+ FROM INDENT_CONSOLIDATION A 
+left outer join  INDENT_CONS_ITEMS B ON (B.INDENT_CONSOLIDATED_ID = A.INDENT_CONSOLIDATION_ID)			
+WHERE  a.financial_year_id >=18  
+
+and  b.item_id  is not null and B.item_id  not in (select ti.item_id from TENDERS t
+inner join  tender_items ti on  ti.tender_id  =t.tender_id
+where t.tender_id in (
+
+select  TENDER_ID
+ from   (
+SELECT A.TENDER_ID,A.TENDER_NO,Convert(varchar(10),A.TENDER_DATE, 103) AS TENDER_DATE,A.TENDER_DESCRIPTION,
+A.FLAG,A.financial_year_id,A.warranty_year,A.import_days,A.domestic_days --,A.flag
+,Convert(varchar(10),A.cover_a, 103) AS cover_a,Convert(varchar(10),A.cover_b, 103) AS cover_b,Convert(varchar(10),A.cover_Demo, 103) AS cover_Demo
+,Convert(varchar(10),A.cover_c, 103) AS cover_c
+,s.cStatus ,s.csid 
+,isnull(t.totali,0) as totali, isnull(fnd.found,0)  as found
+,isnull(n.nosNotFound,0) as nosNotFound,isnull(p.PriceEntry,0) as PriceEntry,isnull(ac.accept,0) as accept,isnull(r.reject,0) as reject 
+,isnull(nosBidder,0) nosBidder,isnull(nositems,0) as nositems,isnull(a.tValue,0) as tValue
+,case when isnull(isGemTender,'N')='N' then 'e-Proc' else 'GeM' end tendertype
+FROM TENDERS A 
+
+
+left outer join 
+(
+select s.SCHEMEID,  count(distinct s.SUPPLIERID) as nosBidder,count(distinct sc.itemid) as nositems from masschemesstatusdetails s
+left outer join schemestatusdetailschild sc on sc.SCHSTATUSDID=s.SCHSTATUSDID
+group by s.SCHEMEID
+) bd on bd.SCHEMEID=A.tender_id
+left outer join 
+(
+select COUNT(*) nosNotFound,tender_id from tender_items where  priceflag='N'
+and  rejectdate is null
+group by tender_id
+) n on n.tender_id=A.tender_id
+
+left outer join 
+(
+select COUNT(distinct ti.item_id) found,ti.tender_id from tender_items ti
+inner join tenders t on t.tender_id=ti.tender_id
+inner join live_tender_price l on l.tender_item_id=ti.tender_item_id
+ where  ti.priceflag is null
+group by ti.tender_id
+) fnd on fnd.tender_id=A.tender_id
+
+left outer join 
+(
+select count(distinct ti.item_id) as PriceEntry,t.tender_id   from tender_items ti 
+inner join tenders t on t.tender_id=ti.tender_id
+inner join live_tender_price l on l.tender_item_id=ti.tender_item_id
+where l.basicrate is not null
+group by t.tender_id
+) p on p.tender_id=A.tender_id
+
+left outer join 
+(
+select count(distinct ti.item_id) as accept,t.tender_id   from tender_items ti 
+inner join tenders t on t.tender_id=ti.tender_id
+inner join live_tender_price l on l.tender_item_id=ti.tender_item_id
+where l.basicrate is not null and  l.isaccept='Y'
+group by t.tender_id
+) ac on ac.tender_id=A.tender_id
+
+left outer join 
+(
+select COUNT(*) reject,tender_id from tender_items where rejectdate is not null
+group by tender_id
+) r on r.tender_id=A.tender_id
+
+left outer join 
+(
+select COUNT(*) totali,tender_id from tender_items
+group by tender_id
+) t on t.tender_id=A.tender_id
+left outer join mascoverstatus s on s.csid=a.csid 
+  where 1=1  and A.financial_year_id >=18   
+  and  s.csid is not null
+and s.csid not in (6)
+
+)ts 
+
+))  and A.STATUS='C'
+GROUP BY  b.indent_cons_items_id,b.item_id,A.INDENT_CONSOLIDATION_ID,A.USER_ID,A.DIRECTORATE_ID,A.FINANCIAL_YEAR_ID,A.STATUS,A.CONSOLIDATED_DATE,A.indent_con_no,A.CreatedOn,A.description,B.estimated_cost
+)x  ";
+
+            var result = await _context.EqToBeTenderDbSet
+                .FromSqlRaw(query)
+                .ToListAsync();
+
+            return Ok(result);
+        }
 
 
 
 
 
-        
+
+
 
     }
 }
