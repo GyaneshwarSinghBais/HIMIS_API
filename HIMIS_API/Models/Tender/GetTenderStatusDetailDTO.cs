@@ -22,5 +22,7 @@
   
         public string? tenderremark { get; set; }
         public string? entrydate { get; set; }
+        public string? Color { get; set; }
+        
     }
 }
