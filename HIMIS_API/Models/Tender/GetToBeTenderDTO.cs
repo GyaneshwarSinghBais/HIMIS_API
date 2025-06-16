@@ -8,7 +8,7 @@
         public string? Work_id { get; set; }
         public string? workname { get; set; }
         public string? ASLetterNO { get; set; }
-        public DateTime? ASDate { get; set; }
+        public string? ASDate { get; set; }
         public decimal? ASAmt { get; set; }
         public decimal? TSAmount { get; set; }
         public decimal? ValueWorks { get; set; }
