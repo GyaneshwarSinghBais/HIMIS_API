@@ -16,7 +16,10 @@ namespace HIMIS_API.Data
         public DbSet<GetTenderDetailDTO> GetTenderDetailDbSet { get; set; }
         public DbSet<EqToBeTenderDTO> EqToBeTenderDbSet { get; set; }
         public DbSet<EqToBeTenderDetailDTO> EqToBeTenderDetailDbSet { get; set; }
+
+       public DbSet<TenderRemarkStatusDTO> TenderRemarkStatusDbSet { get; set; }
         
+
 
 
 
@@ -30,6 +33,7 @@ namespace HIMIS_API.Data
             modelBuilder.Entity<GetEqpRCDTO>().HasNoKey();
             modelBuilder.Entity<GetTenderDetailDTO>().HasNoKey();
             modelBuilder.Entity<EqToBeTenderDetailDTO>().HasNoKey();
+            modelBuilder.Entity<TenderRemarkStatusDTO>().HasNoKey();
 
         }
     }

@@ -605,6 +605,33 @@ GROUP BY  b.indent_cons_items_id,b.item_id,A.INDENT_CONSOLIDATION_ID,A.USER_ID
         }
 
 
+        //https://localhost:7247/api/EMS/TenderRemarkStatus?TenderID=641
+        [HttpGet("TenderRemarkStatus")]
+        public async Task<ActionResult<IEnumerable<TenderRemarkStatusDTO>>> TenderRemarkStatus(Int32 TenderID)
+        {
+            String WhtenId = "";
+
+            if(TenderID != 0)
+            {
+                WhtenId = " and A.TENDER_ID="+ TenderID + " ";
+            }
+
+            string query = $@"   select A.TENDER_ID,A.TENDER_NO,Convert(varchar(10),A.TENDER_DATE, 103) AS TENDER_DATE
+,A.TENDER_DESCRIPTION,tr.tender_id tender_id1, tr.TSID, t.TENDERSTATUS, tr.tenderremark,
+convert(varchar, tr.entrydate,103) as entrydate
+from TENDERS A 
+inner join  TENDERSTATUSREMARK tr on tr.tender_id=A.tender_id
+inner join TENDERSTATUSMASTER t  on t.tsid=tr.tsid
+where 1=1 " + WhtenId + @"  ";
+
+            var result = await _context.TenderRemarkStatusDbSet
+                .FromSqlRaw(query)
+                .ToListAsync();
+
+            return Ok(result);
+        }
+
+
 
     }
 }
