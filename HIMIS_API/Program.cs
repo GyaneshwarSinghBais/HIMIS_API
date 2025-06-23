@@ -20,6 +20,10 @@ builder.Services.AddDbContext<DbContextWeb>(options =>
 
 builder.Services.AddDbContext<DbContextEMS>(options =>
        options.UseSqlServer(builder.Configuration.GetConnectionString("emsSqlconnectionWebsite")));
+
+builder.Services.AddDbContext<DbContextStockMgm>(options =>
+       options.UseSqlServer(builder.Configuration.GetConnectionString("stockMgmSqlconnection")));
+
 // Add services to the container.
 
 builder.Services.AddControllers();
