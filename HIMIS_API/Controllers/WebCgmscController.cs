@@ -66,7 +66,48 @@ namespace HIMIS_API.Controllers
             AND m.ContentCategoryCode IN ('3','10')
             AND CAST(DATEADD(DAY, 7, c.EntryDT) AS DATE) >= CAST(GETDATE() AS DATE)
             AND CAST(n.Content_Publising_Date AS DATE) <= CAST(GETDATE() AS DATE)
-        ORDER BY c.EntryDT DESC";
+        ORDER BY c.EntryDT DESC , c.Content_Registration_Id DESC ";
+
+            var result = await _context.DrugTenderDbSet
+                .FromSqlRaw(query)
+                .ToListAsync();
+
+            return Ok(result);
+        }
+
+
+        //https://localhost:7247/api/WebCgmsc/GetAllCateDrugTenderList
+        [HttpGet("GetAllCateDrugTenderList")]
+        public async Task<ActionResult<IEnumerable<DrugTenderDTO>>> GetAllCateDrugTenderList(int n = 0)
+        {
+            string topClause = n > 0 ? $"TOP ({n})" : "";
+
+            string query = $@"
+        SELECT {topClause}
+            '~/Home/AttachmentList.aspx?a=' + CAST(c.Content_Registration_Id AS VARCHAR) AS Url,
+            c.Content_Registration_Id,
+            Attachment_Id,
+            c.caption,
+            n.Content_Discription,
+            n.Content_Subject AS Subject,
+            '(' + c.caption + ') :- ' + n.Content_Subject AS Content_Subject,
+            n.Content_Publising_Date,
+            n.Expiry_Date_of,
+            n.Expiry_DateOnNotice_Board,
+            CASE 
+                WHEN CAST(c.EntryDT AS DATE) < CAST(GETDATE() AS DATE) THEN 'N' 
+                ELSE 'Y' 
+            END AS DisplayNew
+        FROM ContentAttachment c
+        INNER JOIN NewContent_Create n ON n.Content_Registration_Id = c.Content_Registration_Id
+        INNER JOIN Master_ContentCategory m ON m.ContentCategoryCode = n.ContentCategoryCode 
+        WHERE 
+            c.TenderFileStatus = 'Publish'  
+            AND m.Dept = 'Technical' 
+            --AND m.ContentCategoryCode IN ('3','10')
+            AND CAST(DATEADD(DAY, 7, c.EntryDT) AS DATE) >= CAST(GETDATE() AS DATE)
+            AND CAST(n.Content_Publising_Date AS DATE) <= CAST(GETDATE() AS DATE)
+        ORDER BY c.EntryDT DESC , c.Content_Registration_Id DESC ";
 
             var result = await _context.DrugTenderDbSet
                 .FromSqlRaw(query)
