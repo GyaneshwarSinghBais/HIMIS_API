@@ -77,7 +77,7 @@ group by tcs.CSID,tcs.CStatus
             return Ok(result);
         }
 
-        //https://localhost:7247/api/StockMgm/CoverStatusDetail
+        //https://localhost:7247/api/StockMgm/CoverStatusDetail?csid=1
         [HttpGet("CoverStatusDetail")]
         public async Task<ActionResult<IEnumerable<CoverStatusDetailDTO>>> CoverStatusDetail(Int32 csid)
         {
