@@ -13,5 +13,7 @@
         public string? Expiry_Date_of { get; set; }
         public DateTime? Expiry_DateOnNotice_Board { get; set; }
         public string DisplayNew { get; set; }
+        public string ContentCategoryName { get; set; }
+        
     }
 }

@@ -97,7 +97,8 @@ namespace HIMIS_API.Controllers
             CASE 
                 WHEN CAST(c.EntryDT AS DATE) < CAST(GETDATE() AS DATE) THEN 'N' 
                 ELSE 'Y' 
-            END AS DisplayNew
+            END AS DisplayNew,
+                m.ContentCategoryName
         FROM ContentAttachment c
         INNER JOIN NewContent_Create n ON n.Content_Registration_Id = c.Content_Registration_Id
         INNER JOIN Master_ContentCategory m ON m.ContentCategoryCode = n.ContentCategoryCode 
