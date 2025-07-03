@@ -1821,7 +1821,7 @@ and t.IsZonal is null
 
             if (tRemarkId != -1)
             {
-                whtRemarkId = @"and isnull( ts.TremarkID,0)=0 ";
+                whtRemarkId = @"and isnull( ts.TremarkID,0)="+ tRemarkId + @" ";
             }
 
             string query = $@" select Head,DivisionID,Division,District,x.Work_id,workname, letterno as ASLetterNO,ASDate,ASAmt,TSAmount,ValueWorks,DashName as WorkStatus
