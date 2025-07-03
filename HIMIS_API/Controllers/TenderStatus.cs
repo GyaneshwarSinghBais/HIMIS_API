@@ -1736,6 +1736,163 @@ where x.lastdt='False'
         }
 
 
+        //https://localhost:7247/api/TenderStatus/ToBeTenderBifurcation
+        [HttpGet("ToBeTenderBifurcation")]
+        public async Task<ActionResult<IEnumerable<ToBeTenderBifurcationDTO>>> ToBeTenderBifurcation()
+        {
+
+
+            string query = $@"  select isnull(z.TremarkID,0) as TremarkID, isnull(case when z.TremarkID=6 then 'Pending To Be Sent For Tender' else z.TRemarks end ,'Remark Not Updated') TOBETENDERSTATUS,count(Work_id) as NoOfWork from (
+
+select Head,DivisionID,Division,District,x.Work_id,workname, letterno as ASLetterNO,ASDate,ASAmt,TSAmount,ValueWorks,DashName as WorkStatus
+,ts.TremarkID,ts.TRemarks,ts.RemarkDT,ts.Remarks
+ from (
+select msc.MainSchemeID, msc.Name as Head,dv.divname_en as Division,agd.DivisionID,dis.DBStart_Name_En as District,b.Block_Name_En,hc.DETAILS_ENG,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname
+,w.letterno,convert(varchar,AADate,105) as ASDate
+,  isnull(cast(w.AaAmt as decimal(18,2)),0) as ASAmt, isnull(w.TSAmount,0) as TSAmount
+,case when isnull(w.TSAmount,0)>0 then cast(w.TSAmount as decimal(18,2)) else  isnull(cast(w.AaAmt as decimal(18,2)),0) end as  ValueWorks
+,wpp.parentprogress,wpp.ppid
+
+,p.wocancelletterno,convert(varchar,p.ProgressDT,105) as PDate,
+p.WOCancelProposalLetterNo
+,p.Work_id
+,p.ppid as OldPPID,wpg.GroupName,wpg.PGroupID,dash.did,dash.DashName
+,t.TenderNo as LastNIT,t.eProcNo as LastEprocno,rj.RejReason,convert(varchar,t.RejEntryDT,105) as RejectedDT
+,t.iszonal,t.zonaltype
+from  WorkPhysicalProgress p
+inner join WorkMaster w on w.work_id=p.work_id
+inner join MainSchemes msc on msc.MainSchemeID = w.MainSchemeID
+inner join Districts dis on dis.DISTRICT_ID=w.worklocationdist_id
+inner join agencydivisionmaster  agd on agd.DivisionID=w.AllotedDivisionID and agd.DivisionID not in ('D1032')
+inner join division dv on cast(dv.div_id as bigint) =cast(agd.divisionname as  bigint)
+inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
+inner join dhrsHealthCentreType hc on hc.Type_ID=d.type
+left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join WorkLevelParent wpp on wpp.ppid=p.ppid
+inner join WorkLevelParentGroup wpg on wpg.PGroupID=wpp.PGroupID
+inner join WorkLevelParentDash dash on dash.did=wpg.did
+ left outer join BlocksMaster b on cast(b.Block_ID as int) = cast(d.BLOCK_ID as int)  and b.District_ID =dis.District_ID
+ left outer join
+ (
+ select max(twid) twid,Work_id from MasTenderWorks tw
+ where tw.rejid is not null 
+ group by Work_id
+ ) ltw on ltw.Work_id=w.work_id
+ left outer join MasTenderWorks Tw on tw.TWID=ltw.twid
+ left outer join MasTenderRejReason rj on rj.RejID=tw.RejID
+left outer join MasTender t on t.TenderID= Tw.tenderid
+where 1=1
+ and NewProgress='Y'
+and dash.did =1001 
+and t.IsZonal is null
+ and w.isdeleted  is null 
+ and w.MainSchemeID not in (121,137,140,142)
+ and wpp.PPID not in (25)
+ and isnull(cast(w.AaAmt as decimal(18,2)),0)>20
+ )x
+ left outer join
+ (
+ select tr.Work_ID  , tr.Remarks,
+                            convert( varchar,tr.entrydate,103) as entrydate
+                            ,t.TremarkID 
+      ,t.TRemarks ,CONVERT(varchar, tr.RemarkDT,103) as RemarkDT
+                            from
+                            ToBeTenderRemarkstatus tr 
+                            inner join ToBeTenderRemarkMaster t  on t.TremarkID=tr.TremarkID                         
+                            where tr.IsNew='Y' 
+ 
+ )ts on ts.Work_ID=x.Work_id
+
+ )z group by z.TremarkID,z.TRemarks  ";
+
+            var result = await _context.ToBeTenderBifurcationDbSet
+                .FromSqlRaw(query)
+                .ToListAsync();
+
+            return Ok(result);
+        }
+
+        
+        //  https://localhost:7247/api/TenderStatus/ToBeTenderBifurcationDetail?tRemarkId=0
+        [HttpGet("ToBeTenderBifurcationDetail")]
+        public async Task<ActionResult<IEnumerable<ToBeTenderBifurcationDetailDTO>>> ToBeTenderBifurcationDetail(Int32 tRemarkId)
+        {
+            string whtRemarkId = "";
+
+            if (tRemarkId != -1)
+            {
+                whtRemarkId = @"and isnull( ts.TremarkID,0)=0 ";
+            }
+
+            string query = $@" select Head,DivisionID,Division,District,x.Work_id,workname, letterno as ASLetterNO,ASDate,ASAmt,TSAmount,ValueWorks,DashName as WorkStatus
+, isnull( ts.TremarkID,0) as TremarkID,isnull( (case when ts.TremarkID=6 then 'Pending To Be Sent For Tender' else ts.TRemarks end ),'Remark Not Updated') as TRemarks,ts.RemarkDT,ts.Remarks
+ from (
+select msc.MainSchemeID, msc.Name as Head,dv.divname_en as Division,agd.DivisionID,dis.DBStart_Name_En as District,b.Block_Name_En,hc.DETAILS_ENG,d.NAME_ENG+' - '+isnull(s.SWName,'-')  as workname
+,w.letterno,convert(varchar,AADate,105) as ASDate
+,  isnull(cast(w.AaAmt as decimal(18,2)),0) as ASAmt, isnull(w.TSAmount,0) as TSAmount
+,case when isnull(w.TSAmount,0)>0 then cast(w.TSAmount as decimal(18,2)) else  isnull(cast(w.AaAmt as decimal(18,2)),0) end as  ValueWorks
+,wpp.parentprogress,wpp.ppid
+
+,p.wocancelletterno,convert(varchar,p.ProgressDT,105) as PDate,
+p.WOCancelProposalLetterNo
+,p.Work_id
+,p.ppid as OldPPID,wpg.GroupName,wpg.PGroupID,dash.did,dash.DashName
+,t.TenderNo as LastNIT,t.eProcNo as LastEprocno,rj.RejReason,convert(varchar,t.RejEntryDT,105) as RejectedDT
+,t.iszonal,t.zonaltype
+from  WorkPhysicalProgress p
+inner join WorkMaster w on w.work_id=p.work_id
+inner join MainSchemes msc on msc.MainSchemeID = w.MainSchemeID
+inner join Districts dis on dis.DISTRICT_ID=w.worklocationdist_id
+inner join agencydivisionmaster  agd on agd.DivisionID=w.AllotedDivisionID and agd.DivisionID not in ('D1032')
+inner join division dv on cast(dv.div_id as bigint) =cast(agd.divisionname as  bigint)
+inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
+inner join dhrsHealthCentreType hc on hc.Type_ID=d.type
+left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join WorkLevelParent wpp on wpp.ppid=p.ppid
+inner join WorkLevelParentGroup wpg on wpg.PGroupID=wpp.PGroupID
+inner join WorkLevelParentDash dash on dash.did=wpg.did
+ left outer join BlocksMaster b on cast(b.Block_ID as int) = cast(d.BLOCK_ID as int)  and b.District_ID =dis.District_ID
+ left outer join
+ (
+ select max(twid) twid,Work_id from MasTenderWorks tw
+ where tw.rejid is not null 
+ group by Work_id
+ ) ltw on ltw.Work_id=w.work_id
+ left outer join MasTenderWorks Tw on tw.TWID=ltw.twid
+ left outer join MasTenderRejReason rj on rj.RejID=tw.RejID
+left outer join MasTender t on t.TenderID= Tw.tenderid
+where 1=1
+ and NewProgress='Y'
+and dash.did =1001 
+and t.IsZonal is null
+ and w.isdeleted  is null 
+ and w.MainSchemeID not in (121,137,140,142)
+ and wpp.PPID not in (25)
+ and isnull(cast(w.AaAmt as decimal(18,2)),0)>20
+ )x
+ left outer join
+ (
+ select tr.Work_ID  , tr.Remarks,
+                            convert( varchar,tr.entrydate,103) as entrydate
+                            ,t.TremarkID 
+      ,t.TRemarks ,CONVERT(varchar, tr.RemarkDT,103) as RemarkDT
+                            from
+                            ToBeTenderRemarkstatus tr 
+                            inner join ToBeTenderRemarkMaster t  on t.TremarkID=tr.TremarkID                         
+                            where tr.IsNew='Y' 
+ 
+ )ts on ts.Work_ID=x.Work_id
+
+ where 1=1"+ whtRemarkId + " ";
+
+            var result = await _context.ToBeTenderBifurcationDetailDbSet
+                .FromSqlRaw(query)
+                .ToListAsync();
+
+            return Ok(result);
+        }
+
+
     }
 }
 
