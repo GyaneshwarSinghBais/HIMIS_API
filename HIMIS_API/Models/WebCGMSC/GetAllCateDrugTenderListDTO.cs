@@ -1,6 +1,6 @@
 ﻿namespace HIMIS_API.Models.WebCGMSC
 {
-    public class DrugTenderDTO
+    public class GetAllCateDrugTenderListDTO
     {
         public string Url { get; set; }
         public string Content_Registration_Id { get; set; }
@@ -13,7 +13,6 @@
         public string? Expiry_Date_of { get; set; }
         public DateTime? Expiry_DateOnNotice_Board { get; set; }
         public string DisplayNew { get; set; }
-      //  public string ContentCategoryName { get; set; }
-        
+        public string ContentCategoryName { get; set; }
     }
 }

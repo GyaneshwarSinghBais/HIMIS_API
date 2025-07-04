@@ -99,6 +99,8 @@ namespace HIMIS_API.Data
         public DbSet<ToBeTenderBifurcationDTO> ToBeTenderBifurcationDbSet { get; set; }
         public DbSet<ToBeTenderBifurcationDetailDTO> ToBeTenderBifurcationDetailDbSet { get; set; }
         
+        
+
 
 
 

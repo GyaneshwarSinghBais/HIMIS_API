@@ -38,8 +38,8 @@ namespace HIMIS_API.Data
         public DbSet<HRContentDeptCatDTO> HRContentDeptCatDbSet { get; set; }
         public DbSet<QCTenderAttachmentDTO> QCTenderAttachmentDbSet { get; set; }
         public DbSet<DynamicLightBoxDTO> DynamicLightBoxDbSet { get; set; }
-    
-        
+
+        public DbSet<GetAllCateDrugTenderListDTO> GetAllCateDrugTenderListDbSet { get; set; }
 
 
 
@@ -84,6 +84,7 @@ namespace HIMIS_API.Data
             modelBuilder.Entity<HRContentDeptCatDTO>().HasNoKey();
             modelBuilder.Entity<QCTenderAttachmentDTO>().HasNoKey();
             modelBuilder.Entity<DynamicLightBoxDTO>().HasNoKey();
+            modelBuilder.Entity<GetAllCateDrugTenderListDTO>().HasNoKey();
 
 
         }

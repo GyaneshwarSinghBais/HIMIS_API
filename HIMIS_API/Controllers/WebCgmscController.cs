@@ -78,7 +78,7 @@ namespace HIMIS_API.Controllers
 
         //https://localhost:7247/api/WebCgmsc/GetAllCateDrugTenderList
         [HttpGet("GetAllCateDrugTenderList")]
-        public async Task<ActionResult<IEnumerable<DrugTenderDTO>>> GetAllCateDrugTenderList(int n = 0)
+        public async Task<ActionResult<IEnumerable<GetAllCateDrugTenderListDTO>>> GetAllCateDrugTenderList(int n = 0)
         {
             string topClause = n > 0 ? $"TOP ({n})" : "";
 
@@ -110,7 +110,7 @@ namespace HIMIS_API.Controllers
             AND CAST(n.Content_Publising_Date AS DATE) <= CAST(GETDATE() AS DATE)
         ORDER BY c.EntryDT DESC , c.Content_Registration_Id DESC ";
 
-            var result = await _context.DrugTenderDbSet
+            var result = await _context.GetAllCateDrugTenderListDbSet
                 .FromSqlRaw(query)
                 .ToListAsync();
 
