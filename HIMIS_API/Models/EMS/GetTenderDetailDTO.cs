@@ -22,6 +22,8 @@
         public string? cover_b { get; set; }
         public string? cover_Demo { get; set; }
         public string? cover_c { get; set; }
+        public string? entrydate { get; set; }
+        
 
         //public int? TENDER_ID { get; set; }
         //public string? TENDER_NO { get; set; }

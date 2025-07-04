@@ -192,7 +192,7 @@ where  st.CSID not in (6)
 TENDER_NO,eprocID,
 
 TENDER_DATE,extenddt,ENDDate,tender_description,ISNULL(tsr.TENDERSTATUS,x.CStatus) as TENDERSTATUS,tenderremark,totali as NoOfItems,tValue as TenderValue
-,cover_a,cover_b,cover_Demo,cover_c
+,cover_a,cover_b,cover_Demo,cover_c,tsr.entrydate
 from (
 
 SELECT A.TENDER_ID,A.TENDER_NO,Convert(varchar(10),A.TENDER_DATE, 103) AS TENDER_DATE,Convert(varchar,A.ENDDate, 103) AS ENDDate
@@ -264,7 +264,7 @@ group by tender_id
 left outer join mascoverstatus s on s.csid=a.csid 
   where 1=1  and A.financial_year_id >=18   
   and  s.csid is not null
-and s.csid not in (6) "+ whCsid + @"
+and s.csid not in (6) " + whCsid + @"
 
 
 )x
