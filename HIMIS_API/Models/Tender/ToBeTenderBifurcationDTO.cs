@@ -5,5 +5,7 @@
         public int? TremarkID { get; set; }
         public string? TOBETENDERSTATUS { get; set; }
         public int? NoOfWork { get; set; }
+        public decimal? ValueWorksCR { get; set; }
+        
     }
 }

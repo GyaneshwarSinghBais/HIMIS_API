@@ -1742,7 +1742,9 @@ where x.lastdt='False'
         {
 
 
-            string query = $@"  select isnull(z.TremarkID,0) as TremarkID, isnull(case when z.TremarkID=6 then 'Pending To Be Sent For Tender' else z.TRemarks end ,'Remark Not Updated') TOBETENDERSTATUS,count(Work_id) as NoOfWork from (
+            string query = $@"  select isnull(z.TremarkID,0) as TremarkID, isnull(case when z.TremarkID=6 then 'Pending To Be Sent For Tender' else z.TRemarks end ,'Remark Not Updated') TOBETENDERSTATUS,count(Work_id) as NoOfWork
+,round( sum(ValueWorks)/100,4) ValueWorksCR
+from (
 
 select Head,DivisionID,Division,District,x.Work_id,workname, letterno as ASLetterNO,ASDate,ASAmt,TSAmount,ValueWorks,DashName as WorkStatus
 ,ts.TremarkID,ts.TRemarks,ts.RemarkDT,ts.Remarks
