@@ -60,12 +60,12 @@ namespace HIMIS_API.Controllers
         FROM ContentAttachment c
         INNER JOIN NewContent_Create n ON n.Content_Registration_Id = c.Content_Registration_Id
         INNER JOIN Master_ContentCategory m ON m.ContentCategoryCode = n.ContentCategoryCode 
-        WHERE 
-            c.TenderFileStatus = 'Publish'  
-            AND m.Dept = 'Technical' 
-            AND m.ContentCategoryCode IN ('3','10')
-            AND CAST(DATEADD(DAY, 7, c.EntryDT) AS DATE) >= CAST(GETDATE() AS DATE)
-            AND CAST(n.Content_Publising_Date AS DATE) <= CAST(GETDATE() AS DATE)
+       -- WHERE 
+          --  c.TenderFileStatus = 'Publish'  
+          --  AND m.Dept = 'Technical' 
+          --  AND m.ContentCategoryCode IN ('3','10')
+          --  AND CAST(DATEADD(DAY, 7, c.EntryDT) AS DATE) >= CAST(GETDATE() AS DATE)
+          --  AND CAST(n.Content_Publising_Date AS DATE) <= CAST(GETDATE() AS DATE)
         ORDER BY c.EntryDT DESC , c.Content_Registration_Id DESC ";
 
             var result = await _context.DrugTenderDbSet
