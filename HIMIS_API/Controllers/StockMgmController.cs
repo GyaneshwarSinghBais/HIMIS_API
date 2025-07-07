@@ -32,7 +32,7 @@ mascoverstatus tcs
 left outer join 
  (
 
-select ts.tender_id,isGemTender,tender_no,tender_description,tender_date,ENDDate,cover_a,cover_b,CStatus
+select x.tender_id,isGemTender,tender_no,tender_description,tender_date,ENDDate,cover_a,cover_b,CStatus
 ,count(distinct  item_Id) cntItems,sum(TenderValue) as TenderValue,sum(tValue) as tValue
 , isnull(ts.TENDERSTATUS,x.CStatus) as TENDERSTATUS,ts.tenderremark,ts.entrydate
 ,x.CSID
@@ -46,11 +46,11 @@ select t.tender_id,ti.item_ID ,categoryName,m.item_code,m.item_Name,m.estimated_
 convert(varchar,t.ENDDate,105) as ENDDate,convert(varchar,t.cover_a,105) as cover_a,convert(varchar,t.cover_b,105)  as cover_b
 ,ct.CSID,ct.CStatus,t.tValue  
 from tenders t
-inner join tender_items ti on ti.tender_id=t.tender_id
-inner join masitems m on m.item_id=ti.item_id
+left outer join tender_items ti on ti.tender_id=t.tender_id
+left outer join masitems m on m.item_id=ti.item_id
 left outer join masCategory c on c.categoryId=m.categoryId
 inner join mascoverstatus ct on ct.CSID=t.CSID
-where ct.CSID not in (6)
+where isnull(ct.CSID,0) not in (6)
 )x
 left outer join 
 (
@@ -62,8 +62,8 @@ inner join  TENDERSTATUSREMARK tr on tr.tender_id=A.tender_id and ISNEW='Y'
 inner join TENDERSTATUSMASTER t  on t.tsid=tr.tsid
 where ISNEW='Y'
 )ts on ts.tender_id=x.tender_id
-where isnull(ts.TENDERSTATUS,x.CStatus)='Tender Live'
-group by ts.tender_id,isGemTender,tender_no,tender_description,tender_date,ENDDate,cover_a,cover_b,CStatus,ts.TENDERSTATUS,ts.tenderremark,ts.entrydate,x.CSID,x.CStatus
+where 1=1
+group by x.tender_id,isGemTender,tender_no,tender_description,tender_date,ENDDate,cover_a,cover_b,CStatus,ts.TENDERSTATUS,ts.tenderremark,ts.entrydate,x.CSID,x.CStatus
 )td on td.CSID=tcs.CSID
 
 where tcs.CSID not in (6,4,5)
