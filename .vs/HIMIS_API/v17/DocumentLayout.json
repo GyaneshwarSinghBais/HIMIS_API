@@ -110,7 +110,8 @@
               "RelativeToolTip": "HIMIS_API\\Controllers\\FeedbackController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T09:22:00.061Z"
+              "WhenOpened": "2025-07-09T09:22:00.061Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -122,7 +123,8 @@
               "RelativeToolTip": "HIMIS_API\\Controllers\\WebCgmscController.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAuwE8AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T10:33:22.389Z"
+              "WhenOpened": "2025-07-01T10:33:22.389Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -158,7 +160,8 @@
               "RelativeToolTip": "HIMIS_API\\Controllers\\TenderStatus.cs",
               "ViewState": "AgIAAHUFAAAAAAAAAIA0wIUFAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T07:12:04.56Z"
+              "WhenOpened": "2025-02-24T07:12:04.56Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -182,7 +185,8 @@
               "RelativeToolTip": "HIMIS_API\\Controllers\\DetailProgress.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAqwBMAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T06:34:47.229Z"
+              "WhenOpened": "2025-06-04T06:34:47.229Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -242,7 +246,8 @@
               "RelativeToolTip": "HIMIS_API\\Controllers\\EMSController.cs",
               "ViewState": "AgIAAMkBAAAAAAAAAAAqwNIBAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T10:49:02.356Z"
+              "WhenOpened": "2025-05-30T10:49:02.356Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -266,7 +271,8 @@
               "RelativeToolTip": "HIMIS_API\\Controllers\\Handover.cs",
               "ViewState": "AgIAABEBAAAAAAAAAADwvzIBAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T10:46:15.207Z"
+              "WhenOpened": "2025-03-07T10:46:15.207Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -278,7 +284,8 @@
               "RelativeToolTip": "HIMIS_API\\Controllers\\Payment.cs",
               "ViewState": "AgIAAAkBAAAAAAAAAIAwwPUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T07:12:04.605Z"
+              "WhenOpened": "2025-02-24T07:12:04.605Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -290,7 +297,8 @@
               "RelativeToolTip": "HIMIS_API\\Controllers\\RunningWork.cs",
               "ViewState": "AgIAACoAAAAAAAAAAIA0wEEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T07:12:04.694Z"
+              "WhenOpened": "2025-02-24T07:12:04.694Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -300,7 +308,7 @@
               "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\WorkController.cs",
               "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WorkController.cs",
               "RelativeToolTip": "HIMIS_API\\Controllers\\WorkController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAtwBkAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAtwBIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T06:19:02.389Z",
               "EditorCaption": ""
