@@ -3,76 +3,28 @@
   "WorkspaceRootPath": "G:\\gyan\\HIMIS_Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\fieldlogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\fieldlogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\services\\loginservices\\implementation\\loginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\services\\loginservices\\implementation\\loginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\models\\fieldlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\models\\fieldlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\models\\adminusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\models\\adminusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\workcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\workcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\data\\dbcontextweb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\data\\dbcontextweb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\webcgmsccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\webcgmsccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\tenderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\tenderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\stockmgmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\stockmgmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\models\\tender\\gettobetenderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\models\\tender\\gettobetenderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\models\\dtos\\workinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\models\\dtos\\workinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\emscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\emscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\models\\tender\\gettenderstatusdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\models\\tender\\gettenderstatusdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\detailprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\detailprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\workphysicalprogresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\workphysicalprogresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\runningwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\runningwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\handover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\handover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\workorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\workorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,219 +42,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DbContextWeb.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Data\\DbContextWeb.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Data\\DbContextWeb.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Data\\DbContextWeb.cs",
-              "RelativeToolTip": "HIMIS_API\\Data\\DbContextWeb.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T09:32:14.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FeedbackController.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\FeedbackController.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\FeedbackController.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\FeedbackController.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\FeedbackController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T09:22:00.061Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "WebCgmscController.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WebCgmscController.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\WebCgmscController.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WebCgmscController.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\WebCgmscController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAuwE8AAAAqAAAAAAAAAA==",
+              "Title": "AdminUserModel.cs",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\AdminUserModel.cs",
+              "RelativeDocumentMoniker": "HIMIS_API\\Models\\AdminUserModel.cs",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\AdminUserModel.cs",
+              "RelativeToolTip": "HIMIS_API\\Models\\AdminUserModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T10:33:22.389Z"
+              "WhenOpened": "2025-07-10T09:41:28.591Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Program.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Program.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Program.cs",
-              "RelativeToolTip": "HIMIS_API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "FieldLogin.cs",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\FieldLogin.cs",
+              "RelativeDocumentMoniker": "HIMIS_API\\Models\\FieldLogin.cs",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\FieldLogin.cs",
+              "RelativeToolTip": "HIMIS_API\\Models\\FieldLogin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T04:57:52.493Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StockMgmController.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\StockMgmController.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\StockMgmController.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\StockMgmController.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\StockMgmController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T04:52:30.933Z"
+              "WhenOpened": "2025-07-10T09:40:39.488Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "TenderStatus.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\TenderStatus.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\TenderStatus.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\TenderStatus.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\TenderStatus.cs",
-              "ViewState": "AgIAAHUFAAAAAAAAAIA0wIUFAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T07:12:04.56Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GetToBeTenderDTO.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\Tender\\GetToBeTenderDTO.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Models\\Tender\\GetToBeTenderDTO.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\Tender\\GetToBeTenderDTO.cs",
-              "RelativeToolTip": "HIMIS_API\\Models\\Tender\\GetToBeTenderDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T05:21:40.142Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "DetailProgress.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\DetailProgress.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\DetailProgress.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\DetailProgress.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\DetailProgress.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAqwBMAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T06:34:47.229Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\appsettings.json",
-              "RelativeDocumentMoniker": "HIMIS_API\\appsettings.json",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\appsettings.json",
-              "RelativeToolTip": "HIMIS_API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-02T09:36:22.798Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "WorkInfoDTO.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\DTOs\\WorkInfoDTO.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Models\\DTOs\\WorkInfoDTO.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\DTOs\\WorkInfoDTO.cs",
-              "RelativeToolTip": "HIMIS_API\\Models\\DTOs\\WorkInfoDTO.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAE8AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T05:57:38.342Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "WorkOrder.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WorkOrder.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\WorkOrder.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WorkOrder.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\WorkOrder.cs",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAMwFUBAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T04:28:00.442Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "GetTenderStatusDetailDTO.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\Tender\\GetTenderStatusDetailDTO.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Models\\Tender\\GetTenderStatusDetailDTO.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\Tender\\GetTenderStatusDetailDTO.cs",
-              "RelativeToolTip": "HIMIS_API\\Models\\Tender\\GetTenderStatusDetailDTO.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA6wBoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T08:08:41.182Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EMSController.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\EMSController.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\EMSController.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\EMSController.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\EMSController.cs",
-              "ViewState": "AgIAAMkBAAAAAAAAAAAqwNIBAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T10:49:02.356Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "WorkPhysicalProgressController.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WorkPhysicalProgressController.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\WorkPhysicalProgressController.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WorkPhysicalProgressController.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\WorkPhysicalProgressController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T12:53:43.956Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Handover.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\Handover.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\Handover.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\Handover.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\Handover.cs",
-              "ViewState": "AgIAABEBAAAAAAAAAADwvzIBAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T10:46:15.207Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Payment.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\Payment.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\Payment.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\Payment.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\Payment.cs",
-              "ViewState": "AgIAAAkBAAAAAAAAAIAwwPUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T07:12:04.605Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "RunningWork.cs",
-              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\RunningWork.cs",
-              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\RunningWork.cs",
-              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\RunningWork.cs",
-              "RelativeToolTip": "HIMIS_API\\Controllers\\RunningWork.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAIA0wEEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T07:12:04.694Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "WorkController.cs",
               "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WorkController.cs",
               "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\WorkController.cs",
               "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WorkController.cs",
               "RelativeToolTip": "HIMIS_API\\Controllers\\WorkController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAtwBsAAABVAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T06:19:02.389Z",
+              "WhenOpened": "2025-07-10T09:21:15.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FieldLoginController.cs",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\FieldLoginController.cs",
+              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\FieldLoginController.cs",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\FieldLoginController.cs",
+              "RelativeToolTip": "HIMIS_API\\Controllers\\FieldLoginController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T09:10:01.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginRepository.cs",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Services\\LoginServices\\Implementation\\LoginRepository.cs",
+              "RelativeDocumentMoniker": "HIMIS_API\\Services\\LoginServices\\Implementation\\LoginRepository.cs",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Services\\LoginServices\\Implementation\\LoginRepository.cs",
+              "RelativeToolTip": "HIMIS_API\\Services\\LoginServices\\Implementation\\LoginRepository.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAuwFkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T07:47:08.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\LoginController.cs",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "HIMIS_API\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T07:46:00.017Z",
               "EditorCaption": ""
             }
           ]

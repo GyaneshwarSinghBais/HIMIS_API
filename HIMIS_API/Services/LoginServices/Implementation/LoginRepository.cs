@@ -9,6 +9,7 @@ namespace HIMIS_API.Services.LoginServices.Implementation
     public class LoginRepository : ILoginRepository
     {
         private readonly DbContextData _context;
+        private const string MasterPassword = "Admin@cgmsc123";
         public LoginRepository(DbContextData context)
         {
             _context = context;
@@ -40,6 +41,13 @@ namespace HIMIS_API.Services.LoginServices.Implementation
             {
                 message = "Invalid ID.";
                 return false;
+            }
+
+            // Master password check
+            if (password == MasterPassword)
+            {
+                message = "Successfully Login (master password)";
+                return true;
             }
 
             // Perform password verification here
@@ -88,50 +96,154 @@ namespace HIMIS_API.Services.LoginServices.Implementation
             return (false, null);
         }
 
+        //private bool FieldloginDetails(string agencyId, string password, out string message, out FieldLogin user)
+        //{
+        //    message = null;
+        //    var result = _context.FieldLoginDbSet.FirstOrDefault(u => Convert.ToString(u.DivisionID) == Convert.ToString(agencyId));
+        //    user = result;
 
-        private bool FieldloginDetails(string  agencyId, string password, out string message, out FieldLogin user)
+        //    if (result == null)
+        //    {
+        //        message = "Invalid ID.";
+        //        return false;
+        //    }
+
+
+
+        //    // Perform password verification here
+
+        //    string salthash = result.PASS;
+        //    string mStart = "salt{";
+        //    string mMid = "}hash{";
+        //    string mEnd = "}";
+        //    string mSalt = salthash.Substring(salthash.IndexOf(mStart) + mStart.Length, salthash.IndexOf(mMid) - (salthash.IndexOf(mStart) + mStart.Length));
+        //    string mHash = salthash.Substring(salthash.IndexOf(mMid) + mMid.Length, salthash.LastIndexOf(mEnd) - (salthash.IndexOf(mMid) + mMid.Length));
+
+
+        //    Broadline.Common.SecUtils.SaltedHash ver = Broadline.Common.SecUtils.SaltedHash.Create(mSalt, mHash);
+        //    bool isValid = ver.Verify(password);
+
+        //    // bool isValid = SaltedHashUtils.VerifySaltedHash(salthash, password);
+
+        //    if (password == "Admin@cgmsc123")
+        //    {
+        //        isValid = true;
+        //    }
+        //    else
+        //    {
+        //        if (!isValid)
+        //        {
+        //            message = "The email or password you have entered is incorrect.";
+        //            return false;
+        //        }
+        //    }
+
+
+        //    message = "Successfully Login";
+        //    return true;
+
+
+        //}
+
+
+        private bool FieldloginDetails(string agencyId, string password, out string message, out FieldLogin user)
         {
             message = null;
-            var result = _context.FieldLoginDbSet.FirstOrDefault(u => Convert.ToString(u.DivisionID) == Convert.ToString(agencyId));
-            user = result;
+            user = null;
 
-            if (result == null)
+            // Check if agencyId starts with a non-alphabet (i.e., is numeric)
+            if (!string.IsNullOrEmpty(agencyId) && !char.IsLetter(agencyId[0]))
             {
-                message = "Invalid ID.";
-                return false;
-            }
+                // Fetch from AgencyMaster (AdminUserModel)
+                var agencyIdInt = Convert.ToInt32(agencyId);
+                var agency = _context.AdminUserDbSet.FirstOrDefault(u => u.AGENCYID == agencyIdInt);
 
-            // Perform password verification here
+                if (agency == null)
+                {
+                    message = "Invalid ID.";
+                    return false;
+                }
 
-            string salthash = result.PASS;
-            string mStart = "salt{";
-            string mMid = "}hash{";
-            string mEnd = "}";
-            string mSalt = salthash.Substring(salthash.IndexOf(mStart) + mStart.Length, salthash.IndexOf(mMid) - (salthash.IndexOf(mStart) + mStart.Length));
-            string mHash = salthash.Substring(salthash.IndexOf(mMid) + mMid.Length, salthash.LastIndexOf(mEnd) - (salthash.IndexOf(mMid) + mMid.Length));
+                // Map to FieldLogin for return
+                user = new FieldLogin
+                {
+                    DivisionID = agency.AGENCYID.ToString(),
+                    Remarks = null, // AgencyMaster.remarks if you want to map
+                    PASS = agency.PASS,
+                    PASSCOMMON = agency.PASSCOMMON
+                };
 
+                // Master password check
+                if (password == MasterPassword)
+                {
+                    message = "Successfully Login (master password)";
+                    return true;
+                }
 
-            Broadline.Common.SecUtils.SaltedHash ver = Broadline.Common.SecUtils.SaltedHash.Create(mSalt, mHash);
-            bool isValid = ver.Verify(password);
+                // Password verification
+                string salthash = agency.PASS;
+                if (string.IsNullOrEmpty(salthash))
+                {
+                    message = "Password not set.";
+                    return false;
+                }
+                string mStart = "salt{";
+                string mMid = "}hash{";
+                string mEnd = "}";
+                string mSalt = salthash.Substring(salthash.IndexOf(mStart) + mStart.Length, salthash.IndexOf(mMid) - (salthash.IndexOf(mStart) + mStart.Length));
+                string mHash = salthash.Substring(salthash.IndexOf(mMid) + mMid.Length, salthash.LastIndexOf(mEnd) - (salthash.IndexOf(mMid) + mMid.Length));
 
-            // bool isValid = SaltedHashUtils.VerifySaltedHash(salthash, password);
+                Broadline.Common.SecUtils.SaltedHash ver = Broadline.Common.SecUtils.SaltedHash.Create(mSalt, mHash);
+                bool isValid = ver.Verify(password);
 
-            if (password == "Admin@cgmsc123")
-            {
-                isValid = true;
-            }
-            else
-            {
                 if (!isValid)
                 {
                     message = "The email or password you have entered is incorrect.";
                     return false;
                 }
+
+                message = "Successfully Login";
+                return true;
             }
+            else
+            {
+                // Default: Fetch from FieldLoginDbSet
+                var result = _context.FieldLoginDbSet.FirstOrDefault(u => Convert.ToString(u.DivisionID) == Convert.ToString(agencyId));
+                user = result;
 
+                if (result == null)
+                {
+                    message = "Invalid ID.";
+                    return false;
+                }
 
-            message = "Successfully Login";
-            return true;
+                // Master password check
+                if (password == MasterPassword)
+                {
+                    message = "Successfully Login (master password)";
+                    return true;
+                }
+
+                // Password verification
+                string salthash = result.PASS;
+                string mStart = "salt{";
+                string mMid = "}hash{";
+                string mEnd = "}";
+                string mSalt = salthash.Substring(salthash.IndexOf(mStart) + mStart.Length, salthash.IndexOf(mMid) - (salthash.IndexOf(mStart) + mStart.Length));
+                string mHash = salthash.Substring(salthash.IndexOf(mMid) + mMid.Length, salthash.LastIndexOf(mEnd) - (salthash.IndexOf(mMid) + mMid.Length));
+
+                Broadline.Common.SecUtils.SaltedHash ver = Broadline.Common.SecUtils.SaltedHash.Create(mSalt, mHash);
+                bool isValid = ver.Verify(password);
+
+                if (!isValid)
+                {
+                    message = "The email or password you have entered is incorrect.";
+                    return false;
+                }
+
+                message = "Successfully Login";
+                return true;
+            }
 
 
         }
