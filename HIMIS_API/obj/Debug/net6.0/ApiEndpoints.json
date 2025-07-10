@@ -531,6 +531,54 @@
     ]
   },
   {
+    "ContainingType": "HIMIS_API.Controllers.FeedbackController",
+    "Method": "SendOtp",
+    "RelativePath": "api/Feedback/send-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "HIMIS_API.Models.Feedback.SendOtpRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.FeedbackController",
+    "Method": "SubmitFeedback",
+    "RelativePath": "api/Feedback/submit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "HIMIS_API.Models.Feedback.SubmitFeedbackRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.FeedbackController",
+    "Method": "VerifyOtp",
+    "RelativePath": "api/Feedback/verify-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "HIMIS_API.Models.Feedback.VerifyOtpRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HIMIS_API.Controllers.FieldLoginController",
     "Method": "LoginField",
     "RelativePath": "api/FieldLogin/LoginField",
@@ -2203,6 +2251,52 @@
   },
   {
     "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "ToBeTenderBifurcation",
+    "RelativePath": "api/TenderStatus/ToBeTenderBifurcation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.ToBeTenderBifurcationDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
+    "Method": "ToBeTenderBifurcationDetail",
+    "RelativePath": "api/TenderStatus/ToBeTenderBifurcationDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tRemarkId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.Tender.ToBeTenderBifurcationDetailDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HIMIS_API.Controllers.TenderStatus",
     "Method": "TobeTenderDetailsAS1",
     "RelativePath": "api/TenderStatus/TobeTenderDetailsAS1",
     "HttpMethod": "GET",
@@ -2473,7 +2567,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.DrugTenderDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HIMIS_API.Models.WebCGMSC.GetAllCateDrugTenderListDTO, HIMIS_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -1,4 +1,5 @@
-﻿using HIMIS_API.Models.Tender;
+﻿using HIMIS_API.Models.Feedback;
+using HIMIS_API.Models.Tender;
 using HIMIS_API.Models.WebCGMSC;
 using Microsoft.EntityFrameworkCore;
 
@@ -42,7 +43,10 @@ namespace HIMIS_API.Data
         public DbSet<GetAllCateDrugTenderListDTO> GetAllCateDrugTenderListDbSet { get; set; }
 
 
-
+        public DbSet<FeedbackWebDTO> FeedbacksDbSet { get; set; }
+        public DbSet<FeedbackTypeMasterDTO> FeedbackTypesDbSet { get; set; }
+        public DbSet<TopicMasterDTO> TopicsDbSet { get; set; }
+        public DbSet<MobileVerificationOTPDTO> MobileOtpsDbSet { get; set; }
 
 
 
@@ -85,8 +89,13 @@ namespace HIMIS_API.Data
             modelBuilder.Entity<QCTenderAttachmentDTO>().HasNoKey();
             modelBuilder.Entity<DynamicLightBoxDTO>().HasNoKey();
             modelBuilder.Entity<GetAllCateDrugTenderListDTO>().HasNoKey();
+            modelBuilder.Entity<FeedbackWebDTO>().HasNoKey();
+            modelBuilder.Entity<FeedbackTypeMasterDTO>().HasNoKey();
+            modelBuilder.Entity<TopicMasterDTO>().HasNoKey();
+            //modelBuilder.Entity<MobileVerificationOTPDTO>().HasNoKey();
 
-
+            // Map MobileVerificationOTPDTO to the correct table name
+            modelBuilder.Entity<MobileVerificationOTPDTO>().ToTable("MobileVerificationOTP");
         }
     }
 }

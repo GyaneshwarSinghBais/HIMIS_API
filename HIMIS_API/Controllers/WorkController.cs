@@ -29,6 +29,17 @@ namespace HIMIS_API.Controllers
         {
             string query = "";
 
+            //            query = $@" select ID,Desig,Mobile,Rankid,Role
+            //from 
+            //(
+            //select a.DivisionID as ID, d.DivName_En  Desig ,DivMobile as Mobile ,2 as Rankid  ,'Division' as Role
+            //from  AgencyDivisionMaster a inner join Division d on d.Div_Id=a.DivisionName 
+            //where left(divisionid,1)='D'  and a.DivisionID not in ('D1032')
+            //union all
+            //select cast(AgencyID as varchar) as ID,'Superintending Engineer' as Desig,Mobileno as Mobile,1 RankID,'SE' as Role from AgencyMaster where  AgencyID='1001'
+            //) b 
+            //order by b.Rankid";
+
             query = $@" select ID,Desig,Mobile,Rankid,Role
 from 
 (
@@ -37,6 +48,8 @@ from  AgencyDivisionMaster a inner join Division d on d.Div_Id=a.DivisionName
 where left(divisionid,1)='D'  and a.DivisionID not in ('D1032')
 union all
 select cast(AgencyID as varchar) as ID,'Superintending Engineer' as Desig,Mobileno as Mobile,1 RankID,'SE' as Role from AgencyMaster where  AgencyID='1001'
+union all
+select cast(AgencyID as varchar) as ID,'Superintending Engineer' as Desig,Mobileno as Mobile,1 RankID,'HO_Infra' as Role from AgencyMaster where  AgencyID in (1005,1006,1007,1009)
 ) b 
 order by b.Rankid";
 

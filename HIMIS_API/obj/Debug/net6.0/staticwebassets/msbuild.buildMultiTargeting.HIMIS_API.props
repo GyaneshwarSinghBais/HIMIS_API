@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\HIMIS_API.props" />
-</Project>
