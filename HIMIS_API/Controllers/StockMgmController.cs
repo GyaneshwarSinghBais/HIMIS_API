@@ -85,7 +85,7 @@ group by tcs.CSID,tcs.CStatus
 
             if(csid != 0) 
             {
-                whCsid = " and CSID=1  ";
+                whCsid = " and CSID="+ csid;
             }
 
 
@@ -106,7 +106,7 @@ left outer join tender_items ti on ti.tender_id=t.tender_id
 left outer join masitems m on m.item_id=ti.item_id
 left outer join masCategory c on c.categoryId=m.categoryId
 inner join mascoverstatus ct on ct.CSID=t.CSID
-where ct.CSID not in (6) 
+where ct.CSID not in (4) 
 )x
 left outer join 
 (
@@ -152,7 +152,7 @@ inner join tender_items ti on ti.tender_id=t.tender_id
 inner join masitems m on m.item_id=ti.item_id
 left outer join masCategory c on c.categoryId=m.categoryId
 inner join mascoverstatus ct on ct.CSID=t.CSID
-where 1=1 and ct.CSID not in (6) "+ whTenderId + @"  ";
+where 1=1 and ct.CSID not in (4) "+ whTenderId + @"  ";
 
             var result = await _context.CoverStatusTenderDetailDbSet
                 .FromSqlRaw(query)
