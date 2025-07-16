@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "G:\\gyan\\HIMIS_Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\stockmgmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\stockmgmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\utility\\facoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\utility\\facoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\fieldlogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\fieldlogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,16 +35,16 @@
       "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\models\\fieldlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\models\\adminusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\models\\adminusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\workcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\workcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|g:\\gyan\\himis_backend\\himis_api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101A4F67-DF35-4483-B780-839DF1535025}|HIMIS_API\\HIMIS_API.csproj|solutionrelative:himis_api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,15 +54,80 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Program.cs",
+              "RelativeDocumentMoniker": "HIMIS_API\\Program.cs",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Program.cs",
+              "RelativeToolTip": "HIMIS_API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T10:08:04.037Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StockMgmController.cs",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\StockMgmController.cs",
+              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\StockMgmController.cs",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\StockMgmController.cs",
+              "RelativeToolTip": "HIMIS_API\\Controllers\\StockMgmController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T05:19:25.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\appsettings.json",
+              "RelativeDocumentMoniker": "HIMIS_API\\appsettings.json",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\appsettings.json",
+              "RelativeToolTip": "HIMIS_API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-11T10:07:36.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FacOperation.cs",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Utility\\FacOperation.cs",
+              "RelativeDocumentMoniker": "HIMIS_API\\Utility\\FacOperation.cs",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Utility\\FacOperation.cs",
+              "RelativeToolTip": "HIMIS_API\\Utility\\FacOperation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T09:40:26.32Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "FeedbackController.cs",
+              "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\FeedbackController.cs",
+              "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\FeedbackController.cs",
+              "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\FeedbackController.cs",
+              "RelativeToolTip": "HIMIS_API\\Controllers\\FeedbackController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T06:44:50.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "AdminUserModel.cs",
               "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\AdminUserModel.cs",
               "RelativeDocumentMoniker": "HIMIS_API\\Models\\AdminUserModel.cs",
@@ -50,12 +135,11 @@
               "RelativeToolTip": "HIMIS_API\\Models\\AdminUserModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T09:41:28.591Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T09:41:28.591Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "FieldLogin.cs",
               "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Models\\FieldLogin.cs",
               "RelativeDocumentMoniker": "HIMIS_API\\Models\\FieldLogin.cs",
@@ -63,12 +147,11 @@
               "RelativeToolTip": "HIMIS_API\\Models\\FieldLogin.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T09:40:39.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T09:40:39.488Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "WorkController.cs",
               "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\WorkController.cs",
               "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\WorkController.cs",
@@ -81,33 +164,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "FieldLoginController.cs",
               "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\FieldLoginController.cs",
               "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\FieldLoginController.cs",
               "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\FieldLoginController.cs",
               "RelativeToolTip": "HIMIS_API\\Controllers\\FieldLoginController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T09:10:01.419Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "LoginRepository.cs",
               "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Services\\LoginServices\\Implementation\\LoginRepository.cs",
               "RelativeDocumentMoniker": "HIMIS_API\\Services\\LoginServices\\Implementation\\LoginRepository.cs",
               "ToolTip": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Services\\LoginServices\\Implementation\\LoginRepository.cs",
               "RelativeToolTip": "HIMIS_API\\Services\\LoginServices\\Implementation\\LoginRepository.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAuwFkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAsAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T07:47:08.561Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "LoginController.cs",
               "DocumentMoniker": "G:\\gyan\\HIMIS_Backend\\HIMIS_API\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "HIMIS_API\\Controllers\\LoginController.cs",
@@ -115,8 +198,7 @@
               "RelativeToolTip": "HIMIS_API\\Controllers\\LoginController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T07:46:00.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T07:46:00.017Z"
             }
           ]
         }

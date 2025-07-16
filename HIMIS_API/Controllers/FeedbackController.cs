@@ -2,6 +2,7 @@
 using HIMIS_API.Models.DTOs;
 using HIMIS_API.Models.Feedback;
 using HIMIS_API.Models.WebCGMSC;
+using HIMIS_API.Utility; // Add this for FacOperation
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -14,10 +15,14 @@ namespace HIMIS_API.Controllers
     public class FeedbackController : ControllerBase
     {
         private readonly DbContextWeb _context;
+        private readonly DbContextData _contextData; // Add this
+        private readonly FacOperation _facOperation;  // Add this
 
-        public FeedbackController(DbContextWeb context)
+        public FeedbackController(DbContextWeb context, DbContextData contextData)
         {
             _context = context;
+            _contextData = contextData;
+            _facOperation = new FacOperation(_contextData);
         }
 
         [HttpPost("send-otp")]
@@ -26,9 +31,8 @@ namespace HIMIS_API.Controllers
             if (string.IsNullOrWhiteSpace(request.MobileNumber))
                 return BadRequest("Mobile number is required.");
 
-            // Generate random 6-digit OTP
-            var random = new Random();
-            var otp = random.Next(100000, 999999).ToString();
+            // Use FacOperation to generate and send OTP
+            var otp = _facOperation.sendOtpSms(request.MobileNumber);
 
             var otpRecord = new MobileVerificationOTPDTO
             {
@@ -42,9 +46,6 @@ namespace HIMIS_API.Controllers
 
             _context.MobileOtpsDbSet.Add(otpRecord);
             await _context.SaveChangesAsync();
-
-            // TODO: Send OTP via SMS API here (e.g., Twilio, MSG91)
-            Console.WriteLine($"[DEBUG] OTP for {request.MobileNumber}: {otp}");
 
             return Ok(new { message = "OTP sent successfully." });
         }
@@ -99,8 +100,5 @@ namespace HIMIS_API.Controllers
 
             return Ok(new { message = "Feedback submitted successfully." });
         }
-
-
-
     }
 }

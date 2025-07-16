@@ -1,8 +1,7 @@
 ﻿using HIMIS_API.Data;
-using System.Runtime.CompilerServices;
-
-
 using Microsoft.EntityFrameworkCore;
+using SMSRef;
+using System.Runtime.CompilerServices;
 
 namespace HIMIS_API.Utility
 {
@@ -85,7 +84,75 @@ order by DivName_En " ;
             return strpara;
         }
 
+        public string sendOtpSms(string mobNo)
+        {
+            // string mobNo = "9691611103";
+            string[] saAllowedCharacters = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
+            string sRandomOTP = GenerateRandomOTP(5, saAllowedCharacters);
+            string now = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+            string senddata = "OTP for Login on DPDMIS is " + sRandomOTP;
+            getLoginSMS(mobNo.ToString(), senddata);   
+            return sRandomOTP;
+        }
 
+
+        public string insertUpdateOTP1(string userid, string mobNo)
+        {
+           
+            // string mobNo = "9691611103";
+
+            string[] saAllowedCharacters = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
+            string sRandomOTP = GenerateRandomOTP(5, saAllowedCharacters);
+            string now = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+            string senddata = "OTP for Login on DPDMIS is " + sRandomOTP;
+            getLoginSMS(mobNo.ToString(), senddata);
+
+
+          //  string strUpdateQuery = "Update usrUsers Set OTP = '" + sRandomOTP + "' , OTPUPDATEDT = TO_DATE('" + now + "','MM/DD/YYYY hh24:mi:ss') where userid = " + userid;
+          //  var myList = _context.ProgressRecDbSet
+          //.FromSqlInterpolated(FormattableStringFactory.Create(strUpdateQuery)).ToList();
+
+          //  // insert OTPrecord
+          //  string strInsertQuery = "insert into otprecord(updatedt, otp, mob,  userid,EntryDate,IsLogin)values(TO_DATE('" + now + "','MM/DD/YYYY hh24:mi:ss'), '" + sRandomOTP + "', '" + mobNo + "',  " + userid + ", TO_DATE('" + now + "','MM/DD/YYYY hh24:mi:ss'),'Y' )";
+          //  var myListInsert = _context.ProgressRecDbSet
+          //    .FromSqlInterpolated(FormattableStringFactory.Create(strInsertQuery)).ToList();
+
+            return sRandomOTP;
+
+
+        }
+
+        private string GenerateRandomOTP(int iOTPLength, string[] saAllowedCharacters)
+        {
+
+            string sOTP = String.Empty;
+
+            string sTempChars = String.Empty;
+
+            Random rand = new Random();
+
+            for (int i = 0; i < iOTPLength; i++)
+            {
+
+                int p = rand.Next(0, saAllowedCharacters.Length);
+
+                sTempChars = saAllowedCharacters[rand.Next(0, saAllowedCharacters.Length)];
+
+                sOTP += sTempChars;
+
+            }
+
+            return sOTP;
+
+        }
+
+        public void getLoginSMS(String mobNumber, String OTP)
+        {
+
+            var client = new ServiceSoapClient(ServiceSoapClient.EndpointConfiguration.ServiceSoap);
+
+            var response = client.sendsmsHIMISAsync(mobNumber, OTP, "1407161537152057950");
+        }
 
 
     }

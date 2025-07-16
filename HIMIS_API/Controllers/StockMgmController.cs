@@ -24,7 +24,7 @@ namespace HIMIS_API.Controllers
         {
 
 
-            string query = $@"  select tcs.CSID,tcs.CStatus , count(tender_id) as CntTender,sum(tValue) as tValue 
+            string query = $@"  select tcs.CSID,tcs.CStatus , isnull(count(tender_id),0) as CntTender,sum(isnull(tValue,0)) as tValue 
  
 
 from 
@@ -50,7 +50,7 @@ left outer join tender_items ti on ti.tender_id=t.tender_id
 left outer join masitems m on m.item_id=ti.item_id
 left outer join masCategory c on c.categoryId=m.categoryId
 inner join mascoverstatus ct on ct.CSID=t.CSID
-where isnull(ct.CSID,0) not in (6)
+where isnull(ct.CSID,0) not in (4)
 )x
 left outer join 
 (
@@ -66,7 +66,7 @@ where 1=1
 group by x.tender_id,isGemTender,tender_no,tender_description,tender_date,ENDDate,cover_a,cover_b,CStatus,ts.TENDERSTATUS,ts.tenderremark,ts.entrydate,x.CSID,x.CStatus
 )td on td.CSID=tcs.CSID
 
-where tcs.CSID not in (6,4,5)
+where tcs.CSID not in (4)
 group by tcs.CSID,tcs.CStatus
 ;  ";
 
