@@ -105,7 +105,7 @@ namespace HIMIS_API.Controllers
         WHERE 
             c.TenderFileStatus = 'Publish'  
             AND m.Dept = 'Technical' 
-            --AND m.ContentCategoryCode IN ('3','10')
+            --AND m.ContentCategoryCode NOT IN ('13')
             AND CAST(DATEADD(DAY, 7, c.EntryDT) AS DATE) >= CAST(GETDATE() AS DATE)
             AND CAST(n.Content_Publising_Date AS DATE) <= CAST(GETDATE() AS DATE)
         ORDER BY c.EntryDT DESC , c.Content_Registration_Id DESC ";
