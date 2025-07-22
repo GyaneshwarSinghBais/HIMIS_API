@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "ET51gyD3+8hbiEhYaDqldNCxDgS8oAWE0XqhSPbNhC4=",
-  "Source": "HIMIS_API",
-  "BasePath": "_content/HIMIS_API",
-  "Mode": "Default",
-  "ManifestType": "Publish",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"VVB5F3SYxIhq8iN7WLYG1fklIICeYE3A1WNp7s69TD4=","Source":"HIMIS_API","BasePath":"_content/HIMIS_API","Mode":"Default","ManifestType":"Publish","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

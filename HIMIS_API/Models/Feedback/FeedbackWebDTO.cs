@@ -1,7 +1,11 @@
-﻿namespace HIMIS_API.Models.Feedback
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace HIMIS_API.Models.Feedback
 {
     public class FeedbackWebDTO
     {
+        [Key]
         public int? FeedbackId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

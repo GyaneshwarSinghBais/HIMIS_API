@@ -47,6 +47,10 @@ namespace HIMIS_API.Data
         public DbSet<FeedbackTypeMasterDTO> FeedbackTypesDbSet { get; set; }
         public DbSet<TopicMasterDTO> TopicsDbSet { get; set; }
         public DbSet<MobileVerificationOTPDTO> MobileOtpsDbSet { get; set; }
+        public DbSet<GetMediaResponseDTO> GetMediaResponseDbSet { get; set; }
+        public DbSet<GetFeedBackDTO> GetFeedBackDbSet { get; set; }
+        
+
 
 
 
@@ -89,13 +93,17 @@ namespace HIMIS_API.Data
             modelBuilder.Entity<QCTenderAttachmentDTO>().HasNoKey();
             modelBuilder.Entity<DynamicLightBoxDTO>().HasNoKey();
             modelBuilder.Entity<GetAllCateDrugTenderListDTO>().HasNoKey();
-            modelBuilder.Entity<FeedbackWebDTO>().HasNoKey();
+            //modelBuilder.Entity<FeedbackWebDTO>().HasNoKey();
             modelBuilder.Entity<FeedbackTypeMasterDTO>().HasNoKey();
             modelBuilder.Entity<TopicMasterDTO>().HasNoKey();
-            //modelBuilder.Entity<MobileVerificationOTPDTO>().HasNoKey();
+            modelBuilder.Entity<GetMediaResponseDTO>().HasNoKey(); 
+            modelBuilder.Entity<GetFeedBackDTO>().HasNoKey();
+
+
 
             // Map MobileVerificationOTPDTO to the correct table name
             modelBuilder.Entity<MobileVerificationOTPDTO>().ToTable("MobileVerificationOTP");
+            modelBuilder.Entity<FeedbackWebDTO>().ToTable("FeedbackWeb");
         }
     }
 }
