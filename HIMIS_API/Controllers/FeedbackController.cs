@@ -173,6 +173,50 @@ SELECT f.FeedbackId,f.FirstName,f.LastName,f.Email,f.Address,f.MobileNumber,f.Ci
             return Ok(result);
         }
 
+        [HttpPost("SubmitFeedbackSimple")]
+        public async Task<IActionResult> SubmitFeedbackSimple([FromBody] SubmitFeedbackSimpleRequestDTO request)
+        {
+            var feedback = new FeedbackWebDTO
+            {
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
+                Address = request.Address,
+                MobileNumber = request.MobileNumber,
+                City = request.City,
+                Subject = request.Subject,
+                FeedbackTypeId = request.FeedbackTypeId,
+                AttachmentPath = null, // No file upload
+                Comments = request.Comments,
+                TopicId = request.TopicId,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
 
+            _context.FeedbacksDbSet.Add(feedback);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Feedback submitted successfully." });
+        }
+
+        [HttpGet("GetActiveFeedbackTypes")]
+        public async Task<ActionResult<IEnumerable<FeedbackTypeMasterDTO>>> GetActiveFeedbackTypes()
+        {
+            var feedbackTypes = await _context.FeedbackTypesDbSet
+                .FromSqlRaw("SELECT FeedbackTypeId, FeedbackTypeName FROM FeedbackTypeMaster WHERE IsActive = 1")
+                .ToListAsync();
+
+            return Ok(feedbackTypes);
+        }
+
+        [HttpGet("GetActiveTopics")]
+        public async Task<ActionResult<IEnumerable<TopicMasterDTO>>> GetActiveTopics()
+        {
+            var topics = await _context.TopicsDbSet
+                .FromSqlRaw("SELECT TopicId, TopicName FROM TopicMaster WHERE IsActive = 1")
+                .ToListAsync();
+
+            return Ok(topics);
+        }
     }
 }

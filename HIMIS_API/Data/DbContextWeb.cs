@@ -49,7 +49,9 @@ namespace HIMIS_API.Data
         public DbSet<MobileVerificationOTPDTO> MobileOtpsDbSet { get; set; }
         public DbSet<GetMediaResponseDTO> GetMediaResponseDbSet { get; set; }
         public DbSet<GetFeedBackDTO> GetFeedBackDbSet { get; set; }
-        
+        public DbSet<SubmitFeedbackSimpleRequestDTO> SubmitFeedbackSimpleRequestDbSet { get; set; }
+
+
 
 
 
@@ -98,6 +100,7 @@ namespace HIMIS_API.Data
             modelBuilder.Entity<TopicMasterDTO>().HasNoKey();
             modelBuilder.Entity<GetMediaResponseDTO>().HasNoKey(); 
             modelBuilder.Entity<GetFeedBackDTO>().HasNoKey();
+            modelBuilder.Entity<SubmitFeedbackSimpleRequestDTO>().HasNoKey();
 
 
 
