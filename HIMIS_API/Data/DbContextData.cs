@@ -98,8 +98,13 @@ namespace HIMIS_API.Data
         public DbSet<ZonalToBeTenderDTO> ZonalToBeTenderDbSet { get; set; }
         public DbSet<ToBeTenderBifurcationDTO> ToBeTenderBifurcationDbSet { get; set; }
         public DbSet<ToBeTenderBifurcationDetailDTO> ToBeTenderBifurcationDetailDbSet { get; set; }
-        
-        
+
+        public DbSet<ComplainTypeDTO> ComplainTypeDbSet { get; set; }
+        public DbSet<ComplainDTO> ComplainDbSet { get; set; }
+        public DbSet<FeedbackDTO> FeedbackDbSet { get; set; }
+        public DbSet<FeedbackReportDTO> FeedbackReportDbSet { get; set; }
+
+        public DbSet<FeedbackSuggestion> FeedbackSuggestion { get; set; }
 
 
 
@@ -122,7 +127,10 @@ namespace HIMIS_API.Data
             modelBuilder.Entity<ZonalToBeTenderDTO>().HasNoKey(); 
             modelBuilder.Entity<ToBeTenderBifurcationDTO>().HasNoKey();
             modelBuilder.Entity<ToBeTenderBifurcationDetailDTO>().HasNoKey();
-            
+            modelBuilder.Entity<ComplainTypeDTO>().HasNoKey();
+            modelBuilder.Entity<ComplainDTO>().HasNoKey();
+            modelBuilder.Entity<FeedbackDTO>().HasNoKey();
+            modelBuilder.Entity<FeedbackReportDTO>().HasNoKey();
 
         }
 

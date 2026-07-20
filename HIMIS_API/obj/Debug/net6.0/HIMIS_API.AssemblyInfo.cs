@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HIMIS_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb363b0715b3664d4b0afe355398a57e31d36f4d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+739101b0375a8406c7ba15aa002d93532f5072ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("HIMIS_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HIMIS_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

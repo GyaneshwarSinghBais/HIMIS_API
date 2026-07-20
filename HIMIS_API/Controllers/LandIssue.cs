@@ -16,8 +16,12 @@ namespace HIMIS_API.Controllers
         {
             _context = context;
         }
+        // Fix for CS1061: Add DbSet for FeedbackSuggestion in DbContextData class
+
+        // Ensure the DbContextData class includes the following DbSet property:
+
         [HttpGet("LIPendingTotal")]
-        public async Task<ActionResult<IEnumerable<LandIssueSummaryDTO>>> LIPendingTotal(string RPType,string divisionid,string districtid,string MainSchemeID)
+        public async Task<ActionResult<IEnumerable<LandIssueSummaryDTO>>> LIPendingTotal(string RPType, string divisionid, string districtid, string MainSchemeID)
         {
             string? whereClause = "";
             if (MainSchemeID != "0")
@@ -127,11 +131,11 @@ and r.RID in (1,15)   " + whereClause + @"
 group by name,MainSchemeID
 order by  count(work_id) desc ";
             }
-            
+
 
             if (RPType == "District")
             {
-               //districtwise
+                //districtwise
                 query = $@" select cast(District_ID as varchar) as ID,dbstart_name_en as Name,
 count(work_id) as TotalWorks,sum(WOIssued) as WOIssued,cast(SUM(v)/100 as decimal(18,2)) as valuecr
 , cast(SUM(TVC)/100 as decimal(18,2)) as TVCValuecr
@@ -200,7 +204,7 @@ order by  count(work_id) desc ";
 
                 whereClause += $" and  msc.MainSchemeID = {mainSchemeId}";
             }
-          
+
             string query = "";
 
             query = $@" select w.LetterNo, w.work_id, msc.Name as Head,ap.login_name as Approver,w.GrantNo as grantNo,convert(varchar,n.WrokOrderDT,103) as WrokOrderDT
@@ -300,16 +304,149 @@ group by work_code
 
 where 1=1 and w.isdeleted is null  and w.MainSchemeID not in (121)    " + whereClause + @"
  order by pl.LProgress desc ";
-            
+
             return await _context.WorkorderpendingdetailsDbSet
             .FromSqlRaw(query)
             .ToListAsync();
 
         }
 
-
-
-
+        [HttpGet("GetComplainTypes")]
+        public async Task<ActionResult<IEnumerable<ComplainTypeDTO>>> GetComplainTypes()
+        {
+            string query = @"SELECT ComplainTypeID, TypeName FROM ComplainType ORDER BY TypeName";
+            return await _context.Set<ComplainTypeDTO>()
+                                 .FromSqlRaw(query)
+                                 .ToListAsync();
         }
+
+        [HttpGet("GetComplains")]
+        public async Task<ActionResult<IEnumerable<ComplainDTO>>> GetComplains(int complainTypeId)
+        {
+            string query = $@"SELECT ComplainID, ComplainTypeID, ComplainName 
+                          FROM Complain 
+                          WHERE ComplainTypeID = {complainTypeId}
+                          ORDER BY ComplainName";
+            return await _context.Set<ComplainDTO>()
+                                 .FromSqlRaw(query)
+                                 .ToListAsync();
+        }
+
+
+        [HttpPost("InsertFeedback")]
+        public async Task<ActionResult<int>> InsertFeedback(
+    [FromForm] FeedbackDTO model,
+    IFormFile? pdfFile)
+        {
+            string filePath = "";
+
+            // 🔹 If PDF file uploaded
+            if (pdfFile != null && pdfFile.Length > 0)
+            {
+                string uploadsFolder = @"D:\IIS\HIMIS\Upload\FeedbackUploads";
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(pdfFile.FileName);
+                string fullPath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await pdfFile.CopyToAsync(stream);
+                }
+
+                filePath = fullPath;
+            }
+
+            string query = $@"
+        INSERT INTO FeedbackSuggestion 
+        (FirstName, LastName, Email, MobileNumber, Address, City, Subject, ComplainTypeID, ComplainID, Comments, PdfFilePath, DivisionId, Work_Id) 
+        VALUES 
+        ('{model.FirstName}', '{model.LastName}', '{model.Email}', '{model.MobileNumber}', 
+         '{model.Address}', '{model.City}', '{model.Subject}', {model.ComplainTypeID}, {model.ComplainID}, '{model.Comments}', 
+         {(string.IsNullOrEmpty(filePath) ? "NULL" : $"'{filePath}'")}, 
+         '{model.DivisionId}', '{model.Work_Id}');
+        SELECT SCOPE_IDENTITY();";
+
+            var newId = await _context.Database.ExecuteSqlRawAsync(query);
+            return Ok(newId);
+        }
+
+
+
+        [HttpGet("FeedbackReport")]
+        public async Task<ActionResult<IEnumerable<FeedbackReportDTO>>> FeedbackReport(
+    string? complainTypeId = null, string? complainId = null, string? city = null)
+        {
+            string whereClause = " WHERE 1=1 ";
+
+            if (!string.IsNullOrEmpty(complainTypeId) && complainTypeId != "0")
+            {
+                whereClause += $" AND f.ComplainTypeID = {complainTypeId}";
+            }
+            if (!string.IsNullOrEmpty(complainId) && complainId != "0")
+            {
+                whereClause += $" AND f.ComplainID = {complainId}";
+            }
+            if (!string.IsNullOrEmpty(city) && city != "0")
+            {
+                whereClause += $" AND f.City = '{city}'";
+            }
+
+            string query = $@"
+        SELECT 
+            f.FeedbackID,
+            f.FirstName,
+            f.LastName,
+            f.Email,
+            f.MobileNumber,
+            f.City,
+            f.Subject,
+            ct.TypeName,
+            c.ComplainName,
+            f.Comments,
+            f.CreatedDate,
+            f.PdfFilePath,
+            d.divname_en,
+            w.work_text
+        FROM FeedbackSuggestion f
+        INNER JOIN ComplainType ct ON ct.ComplainTypeID = f.ComplainTypeID
+        INNER JOIN Complain c ON c.ComplainID = f.ComplainID
+            inner join agencydivisionmaster ad on ad.divisionid = f.DivisionId
+        INNER JOIN Division d on  ad.divisionname = d.Div_Id 
+        INNER JOIN WorkMaster w on w.work_id = f.Work_Id
+        {whereClause}
+        ORDER BY f.CreatedDate DESC";
+
+            return await _context.Set<FeedbackReportDTO>()
+                                 .FromSqlRaw(query)
+                                 .ToListAsync();
+        }
+
+
+
+
+
+        //[HttpGet("DownloadFeedbackFile/{id}")]
+        //public async Task<IActionResult> DownloadFeedbackFile(int id)
+        //{
+        //    var feedback = await _context.FeedbackSuggestion.FindAsync(id);
+        //    if (feedback == null || string.IsNullOrEmpty(feedback.PdfFilePath))
+        //        return NotFound("No file uploaded for this feedback.");
+
+        //    if (!System.IO.File.Exists(feedback.PdfFilePath))
+        //        return NotFound("File not found on server.");
+
+        //    var fileBytes = await System.IO.File.ReadAllBytesAsync(feedback.PdfFilePath);
+        //    var fileName = Path.GetFileName(feedback.PdfFilePath);
+
+        //    return File(fileBytes, "application/pdf", fileName);
+        //}
+
+
+
+    }
 }
 

@@ -1189,7 +1189,7 @@ and t.IsZonal is null
         }
 
 
-       
+
         //https://localhost:7247/api/EMS/GetTenderStatusDetail
         [HttpGet("GetTenderStatusDetail")]
         public async Task<ActionResult<IEnumerable<GetTenderStatusDetailDTO>>> GetTenderStatusDetail(Int32 pGroupId, Int32 ppid)
@@ -1215,12 +1215,15 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
     WHEN DATEDIFF(DAY, t.enddt, GETDATE()) > 90 THEN 'Red'         -- Ended more than 90 days ago
     WHEN DATEDIFF(DAY, t.enddt, GETDATE()) BETWEEN 60 AND 90 THEN 'Yellow'  -- Ended between 60-90 days ago
     ELSE 'Black'                                                   -- Ended within last 60 days
-END AS Color
+END AS Color,
+sch.Name as Head,
+sch.MainSchemeID
 from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
 left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join MainSchemes sch on sch.MainSchemeID = w.MainSchemeID
 inner join  
 (
 select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p
@@ -1263,12 +1266,15 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
     WHEN DATEDIFF(DAY, t.enddt, GETDATE()) > 90 THEN 'Red'         -- Ended more than 90 days ago
     WHEN DATEDIFF(DAY, t.enddt, GETDATE()) BETWEEN 60 AND 90 THEN 'Yellow'  -- Ended between 60-90 days ago
     ELSE 'Black'                                                   -- Ended within last 60 days
-END AS Color
+END AS Color,
+sch.Name as Head,
+sch.MainSchemeID
 from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
 left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join MainSchemes sch on sch.MainSchemeID = w.MainSchemeID
 inner join  
 (
 select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p
@@ -1322,12 +1328,15 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
     WHEN DATEDIFF(DAY, t.enddt, GETDATE()) > 90 THEN 'Red'         -- Ended more than 90 days ago
     WHEN DATEDIFF(DAY, t.enddt, GETDATE()) BETWEEN 60 AND 90 THEN 'Yellow'  -- Ended between 60-90 days ago
     ELSE 'Black'                                                   -- Ended within last 60 days
-END AS Color
+END AS Color,
+sch.Name as Head,
+sch.MainSchemeID
 from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
 left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join MainSchemes sch on sch.MainSchemeID = w.MainSchemeID
 inner join  
 (
 select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p
@@ -1376,12 +1385,15 @@ cast(AaAmt as decimal(18,2)) as ASAmt,cast(TSAmount as decimal(18,2)) as TSAmoun
     WHEN DATEDIFF(DAY, t.enddt, GETDATE()) > 90 THEN 'Red'         -- Ended more than 90 days ago
     WHEN DATEDIFF(DAY, t.enddt, GETDATE()) BETWEEN 60 AND 90 THEN 'Yellow'  -- Ended between 60-90 days ago
     ELSE 'Black'                                                   -- Ended within last 60 days
-END AS Color
+END AS Color,
+sch.Name as Head,
+sch.MainSchemeID
 from MasTenderWorks tw
 inner join MasTender t on t.TenderID=tw.tenderid
 inner join WorkMaster w on w.work_id=tw.work_id
 inner join  dhrsHealthCenter d on  cast(d.HC_ID as bigint)=cast(w.worklocation_id as bigint) 
 left outer join SWDetails s on s.SWId=w.work_description_id 
+inner join MainSchemes sch on sch.MainSchemeID = w.MainSchemeID
 inner join  
 (
 select p.ppid,p.Work_id,wpp.ParentProgress,wg.PGroupID  from  WorkPhysicalProgress p

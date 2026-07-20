@@ -3,7 +3,7 @@
     public class GetTenderStatusDetailDTO
     {
         public string? TenderStatus { get; set; }
-        //public int? WorkId { get; set; }
+        public string? work_id { get; set; }
         public string? WorkName { get; set; }
         public string? TenderNo { get; set; }
         public Int32? EprocNo { get; set; }
@@ -19,10 +19,12 @@
         public int? PGroupID { get; set; }
         public int? TenderID { get; set; }
         public int? RejId { get; set; }
-  
+
         public string? tenderremark { get; set; }
         public string? entrydate { get; set; }
         public string? Color { get; set; }
-        
+        public string? Head { get; set; }
+        public Int32? MainSchemeID { get; set; }
+
     }
 }

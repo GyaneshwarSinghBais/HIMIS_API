@@ -1761,6 +1761,293 @@
         }
       }
     },
+    "/api/LandIssue/GetComplainTypes": {
+      "get": {
+        "tags": [
+          "LandIssue"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComplainTypeDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComplainTypeDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComplainTypeDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LandIssue/GetComplains": {
+      "get": {
+        "tags": [
+          "LandIssue"
+        ],
+        "parameters": [
+          {
+            "name": "complainTypeId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComplainDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComplainDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComplainDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LandIssue/InsertFeedback": {
+      "post": {
+        "tags": [
+          "LandIssue"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "FeedbackID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "MobileNumber": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "City": {
+                    "type": "string"
+                  },
+                  "Subject": {
+                    "type": "string"
+                  },
+                  "ComplainTypeID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ComplainID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Comments": {
+                    "type": "string"
+                  },
+                  "CreatedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "DivisionId": {
+                    "type": "string"
+                  },
+                  "Work_Id": {
+                    "type": "string"
+                  },
+                  "pdfFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "FeedbackID": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "MobileNumber": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "Subject": {
+                  "style": "form"
+                },
+                "ComplainTypeID": {
+                  "style": "form"
+                },
+                "ComplainID": {
+                  "style": "form"
+                },
+                "Comments": {
+                  "style": "form"
+                },
+                "CreatedDate": {
+                  "style": "form"
+                },
+                "DivisionId": {
+                  "style": "form"
+                },
+                "Work_Id": {
+                  "style": "form"
+                },
+                "pdfFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LandIssue/FeedbackReport": {
+      "get": {
+        "tags": [
+          "LandIssue"
+        ],
+        "parameters": [
+          {
+            "name": "complainTypeId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "complainId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FeedbackReportDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FeedbackReportDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FeedbackReportDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Login/getAdminLoginDDL": {
       "get": {
         "tags": [
@@ -7343,6 +7630,41 @@
         },
         "additionalProperties": false
       },
+      "ComplainDTO": {
+        "type": "object",
+        "properties": {
+          "complainID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "complainTypeID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "complainName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComplainTypeDTO": {
+        "type": "object",
+        "properties": {
+          "complainTypeID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "typeName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ContentCategoryDTO": {
         "type": "object",
         "properties": {
@@ -8164,6 +8486,70 @@
           "avgDaysSince": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FeedbackReportDTO": {
+        "type": "object",
+        "properties": {
+          "feedbackID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "subject": {
+            "type": "string",
+            "nullable": true
+          },
+          "typeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "complainName": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pdfFilePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "divname_en": {
+            "type": "string",
+            "nullable": true
+          },
+          "work_text": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -9063,6 +9449,10 @@
             "type": "string",
             "nullable": true
           },
+          "work_id": {
+            "type": "string",
+            "nullable": true
+          },
           "workName": {
             "type": "string",
             "nullable": true
@@ -9140,6 +9530,15 @@
           },
           "color": {
             "type": "string",
+            "nullable": true
+          },
+          "head": {
+            "type": "string",
+            "nullable": true
+          },
+          "mainSchemeID": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },
